@@ -1,6 +1,8 @@
 services:
   node:
-    build: .
+    build: 
+      context: ..
+      dockerfile: .docker/dockerfile
     image: node
     volumes:
       - .:/workspace
