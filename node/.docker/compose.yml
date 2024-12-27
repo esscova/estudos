@@ -5,7 +5,9 @@ services:
       dockerfile: .docker/dockerfile
     image: node
     volumes:
-      - .:/workspace
+      - ../:/workspace
+    ports:
+      - "3000:3000"
     working_dir: /workspace
     stdin_open: true
     tty: true
