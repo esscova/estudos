@@ -1,0 +1,2 @@
+ls: não foi possível acessar '/diretorio_que_nao_existe': Arquivo ou diretório inexistente
+Erro ao executar: ls /diretorio_que_nao_existe

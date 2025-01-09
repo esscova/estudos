@@ -1,0 +1,3 @@
+echo "Comando 1"
+ls /diretorio_que_nao_existe
+echo "Comando 2"
