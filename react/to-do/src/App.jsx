@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { v4 as uuid } from "uuid";
+import { Container, TodoList } from './styles' 
 
 function App() {
   const [list, setList] = useState([{id:uuid(), task:""}]);
@@ -12,26 +13,27 @@ function App() {
     setList([ ...list, {id:uuid(), task:inputTask}])
   }
   return (
-    <>
-      <input 
-        onChange={inputEvent}
-        placeholder='O que tenha para fazer ...' 
-      />
-      <button
-        onClick={cliqueiBotao}
-      >
-        Adicionar
-      </button>
+    <Container>
+      <TodoList>
+        <input 
+          onChange={inputEvent}
+          placeholder='O que tenha para fazer ...' 
+        />
+        <button
+          onClick={cliqueiBotao}
+        >
+          Adicionar
+        </button>
 
-      <ul>
-          {
-            list.map( item => (
-              <li key={item.id}>{item.task}</li>
-            ) )
-          }
-      </ul>
-
-    </>
+        <ul>
+            {
+              list.map( item => (
+                <li key={item.id}>{item.task}</li>
+              ) )
+            }
+        </ul>
+      </TodoList>
+    </Container>
   )
 }
 
