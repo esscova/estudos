@@ -1,4 +1,4 @@
-import { PiDropSimple } from "react-icons/pi";
+import { FcEmptyTrash, FcCheckmark } from "react-icons/fc";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -38,6 +38,15 @@ export const Button = styled.button`
     color: #fff;
     border: none;
     width: 130px;
+    cursor: pointer;
+    
+    &:hover{
+        opacity: .8;
+    }
+    &:active{
+        opacity: .6;
+    }
+
 `
 
 export const ListStyle = styled.div`
@@ -54,4 +63,10 @@ export const ListStyle = styled.div`
     li{
         list-style: none;
     }
+`
+export const Trash = styled(FcEmptyTrash)`
+    cursor: pointer;
+`
+export const Check = styled(FcCheckmark)`
+    cursor: pointer;
 `
