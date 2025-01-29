@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de exercicios DOM - 01</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            max-width: 1024px;
+            padding: 1rem;
+            margin: 0 auto;
+        }
+        header{
+            text-align: center;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 1rem;
+        }
+        .exercicio .descricao{
+            margin: 1rem 0;
+        }
+        .resolucao{
+            border: 1px solid #ccc;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        ul{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+            <h1>Manipulando a DOM</h1>
+    </header>
+        <div class="exercicio">
+            <div class="descricao">
+                <h2>Exercicio 01: Alterar o Texto de um Elemento</h2>
+                <p>Objetivo: Ao clicar em um botão, alterar o texto de um parágrafo.</p>
+            </div>
+
+            <div class="resolucao">
+                <p id="texto">Clique no botão para alterar o texto</p>
+                <button id="alterarTexto">Alterar Texto</button>
+            </div>
+        </div>
+        <div class="exercicio">
+            <div class="descricao">
+                <h2>Exercício 2: Adicionar um Novo Elemento à Lista</h2>
+                <p>Objetivo: Adicionar um novo item a uma lista (ul) quando o usuário clicar em um botão.</p>
+
+            </div>
+            <div class="resolucao">
+                <ul id="lista">
+                    <li>Item 1</li>
+                    <li>Item 2</li>
+                    <li>Item 3</li>
+                </ul>
+                <button id="adicionarItem">Adicionar Item</button>
+            </div>
+        </div>
+    
+        <div class="exercicio">
+            <div class="descricao">
+                <h2>Exercício 3: Alternar a Visibilidade de um Elemento</h2>
+                <p>Objetivo: Esconder ou mostrar um elemento ao clicar em um botão.</p>
+            </div>
+            <div class="resolucao">
+                <p id="textoVisivel">Este texto pode ser escondido ou visivel.</p>
+                <button id="alternarVisibilidade">Esconder/Mostrar</button>
+            </div>
+        </div>
+
+        <div class="exercicio">
+            <div class="descricao">
+                <h2>Exercício 4: Mudar a Cor de Fundo</h2>
+                <p>Objetivo: Mudar a cor de fundo de um elemento ao clicar em um botão.</p>
+            </div>
+            <div class="resolucao">
+                <div id="caixa" style="width: 200px; height: 200px; background-color: lightblue;"></div>
+                <button id="mudarCor">Mudar Cor</button>
+            </div>
+        </div>
+
+        <div class="exercicio">
+            <div class="descricao">
+                <h2>Exercício 5: Validar um Campo de Entrada</h2>
+                <p>Objetivo: Validar se um campo de entrada está vazio e exibir uma mensagem de erro.</p>
+            </div>
+            <div class="resolucao">
+                <input type="text" id="campoEntrada" placeholder="Digite alguma coisa ..."/>
+                <button id="validar">Validar</button>
+                <p id="mensagemErro" style="color: red; display: none;">O campo não pode estar vazio!</p>
+            </div>
+        </div>
+
+    <script>
+        //1
+        document.getElementById('alterarTexto').addEventListener('click', () => {
+            document.getElementById('texto').textContent = 'Texto alterado';
+        });
+
+        //2
+        document.getElementById('adicionarItem').addEventListener('click', () => {
+            const lista = document.getElementById('lista');
+            const novoItem = document.createElement('li');
+            novoItem.textContent = `Item ${lista.children.length + 1}`;
+            lista.appendChild(novoItem);
+        });
+
+        //3
+        document.getElementById('alternarVisibilidade').addEventListener('click', () => {
+            const texto = document.getElementById('textoVisivel');
+            if(texto.style.display === 'none'){
+                texto.style.display = 'block';
+            }else{
+                texto.style.display = 'none'
+            }
+        });
+
+        //4
+        document.getElementById('mudarCor').addEventListener('click', () => {
+            const caixa = document.getElementById('caixa');
+            const cores = ['lightblue', 'lightgreen', 'lightcoral', 'lightyellow'];
+            const corAleatoria = cores[Math.floor(Math.random()*cores.length)];
+            caixa.style.backgroundColor = corAleatoria;
+        });
+
+        //5
+        document.getElementById('validar').addEventListener('click', () => {
+            const campo = document.getElementById('campoEntrada');
+            const mensagemErro = document.getElementById('mensagemErro');
+
+            if(campo.value.trim() === ''){
+                mensagemErro.style.display = 'block';
+            }else{
+                mensagemErro.style.display = 'none';
+                alert('campo válido');
+            }
+        });
+
+    </script>
+</body>
+</html>
