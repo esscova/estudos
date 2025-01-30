@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de exercicios DOM - 02</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            max-width: 1024px;
+            padding: 1rem;
+            margin: 0 auto;
+        }
+
+        .exercicio .descricao {
+            margin: 1rem 0;
+        }
+
+        .resolucao {
+            border: 1px solid #ccc;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        ul {
+            list-style: none;
+        }
+        button{
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .box-5{
+            background-color: aqua;
+        }
+        .classBox{
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Manipulando o DOM - 02</h1>
+
+    <div class="exercicio">
+        <div class="descricao">
+            <h2>Exercício 1: Modificar o conteúdo de um parágrafo</h2>
+            <p>Altere o texto de um parágrafo na página usando JavaScript.</p>
+            <p>Crie um arquivo HTML com um parágrafo. No JavaScript, encontre esse parágrafo pelo seu id e altere o seu conteúdo de texto.</p>
+         </div>
+        <div class="resolucao">
+            <p id="paragrafo">Não clique aqui!</p>
+        </div>
+    </div>
+
+    <div class="exercicio">
+        <div class="descricao">
+            <h2>Exercício 2: Alterar o estilo de um elemento</h2>
+            <p>Objetivo: Modifique o estilo de um elemento na página.</p>
+            <p>Crie uma caixa (div) com uma cor de fundo e altura definidas.</p>
+            <p>Use JavaScript para mudar a cor de fundo da div e alterar sua largura quando um botão for clicado.</p>
+        </div>
+        <div class="resolucao">
+            <div id="box" style="width: 200px; height: 200px; background-color: chocolate;">
+            </div>
+            <button id="btn-div">Alterar</button>
+        </div>
+    </div>
+
+    <div class="exercicio">
+        <div class="descricao">
+            <h2>Exercício 3: Criar e adicionar um novo elemento</h2>
+            <p>Objetivo: Crie um novo elemento na página usando JavaScript.</p>
+            <p>Crie um botão que, ao ser clicado, adicione um novo item (li) a uma lista (ul) já existente no HTML.</p>
+        </div>
+        <div class="resolucao">
+            <h3>Lista</h3>
+            <ul id="lista">
+                <li>Item da lista</li>
+            </ul>
+            <button id="btn-lista">Adicionar item</button>
+        </div>
+    </div>
+
+    <div class="exercicio">
+        <div class="descricao">
+            <h2>Exercício 4: Remover um elemento da página</h2>
+            <p>Objetivo: Remova um elemento da página quando um botão for clicado.</p>
+            <p>Crie um botão que, ao ser clicado, remova um item (li) de uma lista existente.</p>
+        </div>
+        <div class="resolucao">
+            <h3>Lista</h3>
+            <ul id="lista-remover">
+                <li>item 1</li>
+                <li>item 2</li>
+                <li>item 3</li>
+            </ul>
+            <button id="btn-remover">Remover item</button>
+        </div>
+    </div>
+
+    <div class="exercicio">
+        <div class="descricao">
+            <h2>Exercício 5: Manipulação de classes CSS</h2>
+            <p>Objetivo: Adicione ou remova classes de um elemento.Objetivo: Adicione ou remova classes de um elemento.</p>
+            <p>Crie um botão que, quando clicado, altere a cor de fundo de um div usando a manipulação de classes CSS.</p>
+            <p>Defina uma classe CSS que altera a cor de fundo do div e use classList.add() ou classList.remove() para alternar entre estilos.</p>
+        </div>
+        <div class="resolucao">
+            <div id="box-5" class="box-5" style="width: 200px; height: 200px;"></div>
+            <button id="btnBox5">Mudar a cor</button>
+        </div>
+    </div>
+    <script>
+        // 1
+        const paragrafo = document.getElementById('paragrafo');
+        paragrafo.addEventListener('click', () => {
+            paragrafo.innerText = 'Pootz clicou!';
+        });
+
+        //2
+        const box = document.getElementById('box');
+        const btnBox = document.getElementById('btn-div');
+        btnBox.addEventListener('click',() => {
+            box.style.background = 'lightblue';
+            box.style.width = '400px';
+        });
+
+        //3
+        document.getElementById('btn-lista').addEventListener('click', () => {
+            const lista = document.getElementById('lista');
+            const itemLista = document.createElement('li');
+            itemLista.innerText = 'item adicionado';
+            lista.appendChild(itemLista);
+        });
+
+        //4
+        document.getElementById('btn-remover').addEventListener('click', () => {
+            const lista = document.getElementById('lista-remover');
+            const item = lista.querySelector('li');
+            if(item){
+                lista.removeChild(item);
+            }
+        });
+
+        //5
+        document.getElementById('btnBox5').addEventListener('click', () => {
+            const box5 = document.getElementById('box-5');
+            box5.classList.toggle('classBox');
+        });
+    </script>
+</body>
+
+</html>
