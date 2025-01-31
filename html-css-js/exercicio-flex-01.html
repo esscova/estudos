@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de exercicios: Display Flex</title>
+    <style>
+        section{
+            margin: 1rem 0;
+            padding: 1rem 0;
+        }
+        .res{
+            padding: 1rem ;
+            border: 1px solid #ccc;
+            background-color: #bbbbbb34;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .caixa{
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+        }
+        nav ul{
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        nav a{
+            text-decoration: none;
+            color: #333;
+        }
+        .card-container{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .card{
+            flex: 1;
+            background-color: lightcoral;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            max-width: 300px;
+        }
+        .layout{
+            display: flex;
+            height: 500px;
+        }
+        .layout .left{
+            flex: 3;
+            background-color: lightgreen;
+            padding: 20px;
+        }
+        .layout .right{
+            flex: 7;
+            background-color: lightblue;
+            padding: 20px;
+        }
+        .galeria{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 20px;
+        }
+        .galeria img{
+            flex: 1 1 calc(33.33% - 20px);
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        @media (max-width: 768px){
+            .galeria img{
+                flex: 1 1 calc(100% - 20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Exercícios: Display Flex</h1>
+
+    <!-- EXERCÍCIO 1 -->
+     <section>
+        <h3>
+            Exercício 1: Centralizar um Elemento na Tela
+        </h3>
+        <p>
+            Objetivo: Centralizar uma caixa tanto horizontal quanto verticalmente no meio da tela.
+        </p>
+        <div class="res">
+            <div class="container">
+                <div class="caixa"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXERCICIO 2 -->
+    <section>
+        <h3>Exercício 2: Criar uma Barra de Navegação Horizontal</h3>
+        <p>Objetivo: Criar uma barra de navegação com links alinhados horizontalmente e espaçados igualmente.</p>
+
+        <div class="res">
+            <nav>
+                <ul>
+                    <li><a href="#">Link 1</a></li>
+                    <li><a href="#">Link 2</a></li>
+                    <li><a href="#">Link 3</a></li>
+                    <li><a href="#">Link 4</a></li>
+                    <li><a href="#">Link 5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <!-- EXERCICIO 3 -->
+    <section>
+        <h3>Exercício 3: Layout de Cartões em Linha</h3>
+        <p>Objetivo: Criar uma linha de cartões (cards) que se ajustam ao tamanho da tela.</p>
+
+        <div class="res">
+            <div class="card-container">
+                <div class="card">
+                    <h3>Card 1</h3>
+                    <p>Conteudo</p>
+                </div>
+                <div class="card">
+                    <h3>Card 2</h3>
+                    <p>Conteudo</p>
+                </div>
+                <div class="card">
+                    <h3>Card 3</h3>
+                    <p>Conteudo</p>
+                </div>
+                <div class="card">
+                    <h3>Card 4</h3>
+                    <p>Conteudo</p>
+                </div>
+                <div class="card">
+                    <h3>Card 5</h3>
+                    <p>Conteudo</p>
+                </div>
+            </div>
+        </div>
+
+
+
+    </section>
+
+    <!-- EXERCICIO 4  -->
+     <section>
+        <h3>Exercício 4: Layout de Duas Colunas</h3>
+        <p>Objetivo: Criar um layout com duas colunas, onde uma coluna ocupa 70% da largura e a outra 30%.</p>
+
+        <div class="res">
+            <div class="layout">
+                <div class="left"></div>
+                <div class="right"></div>
+            </div>
+     </section>
+
+    <!-- EXERCÍCIO 5 -->
+     <section>
+        <h3>Exercício 5: Galeria de Imagens Responsiva</h3>
+        <p>Objetivo: Criar uma galeria de imagens que se ajusta em várias colunas, dependendo do tamanho da tela.</p>
+
+        <div class="res">
+            <div class="galeria">
+                <img src="https://picsum.photos/200/300?random=1" alt="Imagem 1">
+                <img src="https://picsum.photos/200/300?random=2" alt="Imagem 2">
+                <img src="https://picsum.photos/200/300?random=3" alt="Imagem 3">
+                <img src="https://picsum.photos/200/300?random=4" alt="Imagem 4">
+                <img src="https://picsum.photos/200/300?random=5" alt="Imagem 5">
+                <img src="https://picsum.photos/200/300?random=6" alt="Imagem 6">
+                <img src="https://picsum.photos/200/300?random=7" alt="Imagem 7">
+                <img src="https://picsum.photos/200/300?random=8" alt="Imagem 8">
+                <img src="https://picsum.photos/200/300?random=9" alt="Imagem 9">
+                <img src="https://picsum.photos/200/300?random=10" alt="Imagem 10">
+            </div>
+     </section>
+</body>
+</html>
