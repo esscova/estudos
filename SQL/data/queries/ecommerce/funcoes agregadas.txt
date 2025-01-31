@@ -1,0 +1,19 @@
+-- Conte todas as visitas realizadas ao site da empresa fictícia
+
+-- Conte todos os pagamentos registrados na tabela sales.funnel 
+
+-- Conte todos os produtos distintos visitados em jan/21
+
+-- Calcule o preço mínimo, máximo e médio dos productos da tabela products
+
+-- Informe qual é o veículo mais caro da tabela products
+
+-- Calcule o nº de clientes da tabela customers por estado
+
+-- Calcule o nº de clientes por estado e status profissional 
+
+-- Selecione os estados distintos na tabela customers utilizando o group by
+
+-- Calcule o nº de clientes por estado filtrando apenas estados acima de 100 clientes
+
+

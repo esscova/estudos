@@ -1,0 +1,27 @@
+-- Utilize o LEFT JOIN para fazer join entre as tabelas
+-- temp_tables.tabela_1 e temp_tables.tabela_2
+
+-- Utilize o INNER JOIN para fazer join entre as tabelas
+-- temp_tables.tabela_1 e temp_tables.tabela_2
+
+-- Utilize o RIGHT JOIN para fazer join entre as tabelas
+-- temp_tables.tabela_1 e temp_tables.tabela_2
+
+-- Utilize o FULL JOIN para fazer join entre as tabelas
+-- temp_tables.tabela_1 e temp_tables.tabela_2
+
+-- Identifique qual é o status profissional mais frequente nos clientes 
+-- que compraram automóveis no site
+
+-- Identifique qual é o gênero mais frequente nos clientes que compraram
+-- automóveis no site. Obs: Utilizar a tabela temp_tables.ibge_genders
+
+-- Identifique de quais regiões são os clientes que mais visitam o site
+-- Obs: Utilizar a tabela temp_tables.regions
+
+-- Identifique quais as marcas de veículo mais visitada na tabela sales.funnel
+
+-- Identifique quais as lojas de veículo mais visitadas na tabela sales.funnel
+
+-- Identifique quantos clientes moram em cada tamanho de cidade (o porte da cidade
+-- consta na coluna "size" da tabela temp_tables.regions)

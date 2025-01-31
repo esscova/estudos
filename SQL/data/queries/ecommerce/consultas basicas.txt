@@ -1,0 +1,30 @@
+-- Liste os e-mails dos clientes da tabela sales.customers
+
+-- Liste os emails e nomes dos clientes da tabela sales.customers
+
+-- Liste todos as informações dos clientes da tabela sales.customers
+
+-- Liste os emails dos clientes da nossa base que moram no estado de Santa Catarina
+
+-- Liste os emails dos clientes da nossa base que moram no estado de Santa Catarina
+-- ou Mato Grosso do Sul
+
+-- Liste os emails dos clientes da nossa base que moram no estado de Santa Catarina 
+-- ou Mato Grosso do Sul e que tem mais de 30 anos
+
+-- Liste as marcas de carro que constam na tabela products
+
+-- Liste as marcas de carro distintas que constam na tabela products
+
+-- Liste as marcas e anos de modelo distintos que constam na tabela products
+
+-- Liste as 10 primeiras linhas da tabela funnel utilizando o LIMIT
+
+-- Liste os 10 produtos mais caros da tabela products com o comando LIMIT
+
+-- Liste produtos da tabela products na ordem crescente com base no preço
+
+-- Liste os estados distintos da tabela customers na ordem crescente
+
+
+

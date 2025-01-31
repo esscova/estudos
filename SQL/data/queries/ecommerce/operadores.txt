@@ -1,0 +1,21 @@
+-- Crie uma coluna contendo a idade do cliente da tabela sales.customers
+
+-- Liste os 10 clientes mais novos da tabela customers
+
+-- Crie a coluna "nome_completo" contendo o nome completo do cliente
+
+-- Crie uma coluna que retorne TRUE sempre que um cliente for um profissional clt 
+
+-- Selecione veículos que custam entre 100k e 200k na tabela products
+
+-- Selecione veículos que custam abaixo de 100k ou acima 200k 
+
+-- Selecionar produtos que sejam da marca HONDA, TOYOTA ou RENAULT
+
+-- Selecione os primeiros nomes distintos da tabela customers que começam
+-- com as iniciais ANA
+
+-- Selecione os primeiros nomes distintos com iniciais 'ana' ignore case sensitive
+
+-- Selecionar apenas as linhas que contém nulo no campo "population" na tabela
+-- temp_tables.regions
