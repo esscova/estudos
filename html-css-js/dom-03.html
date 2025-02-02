@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de exercicios DOM - 03</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            max-width: 1024px;
+            padding: 1rem;
+        }
+        .exe{
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 1rem 0;
+        }
+        .res{
+            margin-top: 1rem;
+            background-color: #f1efef;
+            padding: 10px;
+            
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            gap: 10px;
+        }
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            margin-bottom: 1rem;
+        }
+        .box1-ativo{
+            background-color: lightcoral;
+        }
+        #inputErro{
+            display: none;
+            color: red;
+        }
+        ul{
+            list-style: none;
+        }
+        .escuro{
+            padding: 1rem;
+            background-color: #333;
+            color: #fff;
+        }
+        .claro{
+            padding: 1rem;
+            background-color: #fff;
+            color: #333;
+        }
+        #conteudo{
+            transition: background-color 0.7s, color 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <h1>Manipulando o DOM - 03</h1>
+    
+    <!-- EXERCICIO 01 -->
+    <div class="exe">
+        <h3>Exercício 1: Adicionar e Remover Classes
+        </h3>
+        <p>Objetivo: Adicionar e remover uma classe CSS de um elemento ao clicar em um botão.</p>
+
+        <div class="res">
+            <div id="box1" class="box1"></div>
+            <button id="btnBox1">Mudar a cor</button>
+        </div>
+    </div>
+
+    <!-- EXERCICIO 02 -->
+    <div class="exe">
+        <h3>Exercício 2: Contador de Cliques
+        </h3>
+        <P>Objetivo: Criar um contador que aumenta cada vez que o usuário clica em um botão.</P>
+
+        <div class="res">
+            <p>Cliques: <span id="contador">0</span></p>
+            <button id="btnContador">Clique aqui</button>
+        </div>
+    </div>
+
+    <!-- EXERCICIO 03 -->
+     <div class="exe">
+        <h3>Exercício 3: Validar Formulário</h3>
+        <p>Objetivo: Validar um campo de formulário e exibir uma mensagem de erro se estiver vazio.</p>
+
+        <div class="res">
+            <input type="text" id="input" placeholder="Digite algo aqui..." />
+            <button id="btnValidar">Enviar</button>
+            <p id="inputErro">Campo vazio!</p>
+        </div>
+     </div>
+
+     <!-- EXERCICIO 04 -->
+      <div class="exe">
+        <h3>Exercício 4: Adicionar Itens a uma Lista</h3>
+        <p>Objetivo: Permitir que o usuário adicione itens a uma lista digitando em um campo de entrada.</p>
+
+        <div class="res">
+            <div>
+                <input id="inputLista" type="text" placeholder="Adicione um item a lista" />
+                <button id="btnAdicionarItem">Adicionar</button>
+            </div>
+
+            <ul id="lista">
+            </ul>
+        </div>
+      </div>
+
+      <!-- EXERCICIO 05 -->
+    <div class="exe">
+        <h3>Exercício 5: Alternar Tema (Claro/Escuro)</h3>
+        <p>Objetivo: Alternar entre temas claro e escuro ao clicar em um botão.</p>
+        
+        <div class="res">
+            <div id="conteudo" class="claro">
+                <h2>Lorem Ipsum</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto sint quod beatae nulla labore soluta aliquid quos delectus. Delectus ducimus possimus illum laudantium ipsa deserunt numquam quae totam sapiente tempora!</p>
+            </div>
+            <button id="btnAlternarTemas">Alternar Tema</button>
+        </div>
+    </div>
+
+    <script>
+        // 01
+        document.getElementById('btnBox1').addEventListener('click', () => {
+            document.getElementById('box1').classList.toggle('box1-ativo');
+        });
+
+        // 02
+        let contador = 0;
+        document.getElementById('btnContador').addEventListener('click', () => {
+            contador++;
+            document.getElementById('contador').innerText = contador;
+        });
+
+        // 03
+        document.getElementById('btnValidar').addEventListener('click', () => {
+            const input = document.getElementById('input').value.trim();
+            const mensagemErro = document.getElementById('inputErro');
+            if(input === ''){
+                mensagemErro.style.display='block';
+            }else{
+                mensagemErro.style.display='none';
+            }
+        });
+
+        // 04
+        document.getElementById('btnAdicionarItem').addEventListener('click', () => {
+            const inputLista = document.getElementById('inputLista');
+            const lista = document.getElementById('lista');
+            const itemLista = document.createElement('li');
+            
+            if(inputLista.value.trim() !== ''){
+                itemLista.textContent = inputLista.value;
+                lista.appendChild(itemLista);
+                inputLista.value = '';
+            }
+        });
+
+        // 05
+        document.getElementById('btnAlternarTemas').addEventListener('click', () => {
+            const conteudo = document.getElementById('conteudo');
+            conteudo.classList.toggle('escuro');
+            conteudo.classList.toggle('claro');
+        });
+
+    </script>
+</body>
+</html>
