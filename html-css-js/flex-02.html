@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de exercicios: Display Flex - 02</title>
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+            font-family: Arial, Helvetica, sans-serif;
+            max-width: 1024px;
+            padding: 1rem;
+        }
+    .exe{
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 1rem 0;
+    }
+    .res{
+        margin-top: 1rem;
+        background-color: #f1efef;
+        padding: 10px;
+        
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 10px;
+    }
+    #ex01{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 2rem;
+    }
+    #ex01 nav ul{
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    #ex01 nav ul li a{
+        padding: 5px 10px;
+        text-decoration: none;
+        color: #333;
+        border-radius: 8px;
+        transition: background-color 0.3s;
+    }
+    #ex01 nav ul li a:hover{
+        background-color: #fff;
+    }
+    .card-container{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: space-between;
+    }
+    .card-container .card{
+        flex: 1 1 calc(33.33% - 10px);
+        max-width: 100%;
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 8px;
+        background-color: #fff;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+    @media (max-width: 768px){
+        .card-container .card{
+            flex: 1 1 calc(50% - 10px);
+        }
+    }
+    @media (max-width: 480px){
+        .card-container .card{
+            flex: 1 1 calc(100% - 10px);
+        }
+    }
+    .rodape{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 1rem;
+        padding: 10px;
+        border-top: 1px solid #ccc;
+    }
+    .rodape ul{
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .rodape ul li a{
+        text-decoration: none;
+        color: #333;
+        padding: 5px 10px;
+        border-radius: 8px;
+        transition: background-color 0.3s;
+    }
+    .rodape ul li a:hover{
+        background-color: #fff;
+    }
+    .galeria{
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    .galeria img{
+        width: 100%;
+        height: auto;
+        flex: 1 1 calc(33.333% - 10px);
+        border-radius: 8px;
+        transition: transform 0.2s ease-in-out;
+    }
+    .galeria img:hover{
+        transform: scale(1.03);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    @media (max-width: 768px){
+        .galeria img{
+            flex: 1 1 calc(50% - 10px);
+        }
+    }
+    @media (max-width: 480px){
+        .galeria .img{
+            flex: 1 1 100%;
+        }
+    }
+    .container{
+        display: flex;
+        width: 100%;
+        height: 50vh;
+    }
+    .sidebar{
+        flex: 1;
+        background-color: #333;
+        color: #fff;
+        padding: 1.3rem;
+    }
+    .conteudo{
+        flex: 4;
+        background-color: #c7c7c7;
+        padding: 1.3rem;
+
+    }
+</style>
+
+</head>
+<body>
+    <h1 style="margin-bottom: 2rem;">Lista de exercicios: Display Flex 02</h1>
+
+    <!-- EXERCICIO 01 -->
+    <div class="exe">
+        <h2>Exercício 1: Layout de Cabeçalho com Flexbox</h2>
+        <p>Objetivo: Criar um cabeçalho com um logo à esquerda e links de navegação à direita.</p>
+        <div class="res">
+            <header id="ex01">
+                <div class="logo">Logo</div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Link 1</a></li>
+                        <li><a href="#">Link 2</a></li>
+                        <li><a href="#">Link 3</a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+    </div>
+
+    <!-- EXERCICIO 02 -->
+    <div class="exe">
+        <h2>Exercício 2: Layout de Cartões em Grade</h2>
+        <p>Objetivo: Criar uma grade de cartões (cards) que se ajusta ao tamanho da tela.</p>
+        
+        <div class="res">
+            <div class="card-container">
+                <div class="card">
+                    <h3>Card 1</h3>
+                    <p>Conteudo</p>
+                </div>
+                <div class="card">
+                    <h3>Card 2</h3>
+                    <p>Conteudo</p>
+                </div>
+                <div class="card">
+                    <h3>Card 3</h3>
+                    <p>Conteudo</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EXERCICIO 3 -->
+    <div class="exe">
+        <h2>Exercício 3: Layout de Rodapé com Flexbox</h2>
+        <p>Objetivo: Criar um rodapé com três seções alinhadas horizontalmente.</p>
+
+        <div class="res">
+            <footer class="rodape">
+                <div class="logo">Logo</div>
+                <div class="links">
+                    <ul>
+                        <li><a href="#">Link 1</a></li>
+                        <li><a href="#">Link 2</a></li>
+                        <li><a href="#">Link 3</a></li>
+                    </ul>
+                </div>
+                <div class="social">
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                    </ul>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- EXERCICIO 04 -->
+     <div class="exe">
+        <h2>Exercício 4: Layout de Galeria de Imagens</h2>
+        <p>Objetivo: Criar uma galeria de imagens com três colunas.</p>
+
+        <div class="res">
+            <div class="galeria">
+                <img src="https://picsum.photos/200/300?random=1" alt="Imagem 1">
+                <img src="https://picsum.photos/200/300?random=2" alt="Imagem 2">
+                <img src="https://picsum.photos/200/300?random=3" alt="Imagem 3">
+                <img src="https://picsum.photos/200/300?random=4" alt="Imagem 4">
+                <img src="https://picsum.photos/200/300?random=5" alt="Imagem 5">
+                <img src="https://picsum.photos/200/300?random=6" alt="Imagem 6">
+            </div>
+        </div>
+     </div>
+
+     <!-- EXERCICIO 05 -->
+      <div class="exe">
+        <h2>Exercício 5: Layout de Página com Sidebar</h2>
+        <p>Objetivo: Criar um layout de página com uma sidebar à esquerda e conteúdo principal à direita.</p>
+
+        <div class="res">
+            <div class="container">
+                <aside class="sidebar">Sidebar</aside>
+                <main class="conteudo">Conteúdo principal</main>
+            </div>
+        </div>
+      </div>
+
+</body>
+</html>
