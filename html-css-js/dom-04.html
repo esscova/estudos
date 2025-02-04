@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios DOM - 04</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .container{
+            max-width: 1024px;
+            margin: 1rem auto;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            }
+        .container > div{
+            width: 100%;
+            margin-top: 1rem;
+            background-color: #f1efef;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        ul{list-style: none; margin-bottom: 10px;}
+        button{
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        #arrastavel{
+            width: 100px;
+            height: 100px;
+            background-color: lightcoral;
+            text-align: center;
+            line-height: 100px;
+        }
+        #alvo{
+            width: 200px;
+            height: 200px;
+            background-color: lightgreen;
+            text-align: center;
+            line-height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="margin: 2rem;">Lista de Exercícios com DOM - 04</h1>
+    <!-- EXERCICIO 01 -->
+    <div class="container">
+        <h2>Exercício 1: Adicionar e Remover Elementos</h2>
+        <p>Objetivo: Adicionar e remover elementos de uma lista dinamicamente.</p>
+        <div>
+            <ul id="lista">
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+            </ul>
+            <div style="display: flex; gap: 10px;">
+                <button onclick="adicionarItem()">Adicionar Item</button>
+                <button onclick="removerItem()">Remover Item</button>
+            </div>
+        </div>
+     </div>
+
+     <!-- EXERCICIO 2 -->
+    <div class="container">
+        <h2>Exercício 2: Alternar Visibilidade de um Elemento</h2>
+        <p>Objetivo: Alternar a visibilidade de um elemento ao clicar em um botão.</p>
+        <div>
+            <div id="box">
+                <p>Esta caixa pode ser escondida ou visivel</p>
+            </div>
+            <button onclick="alternarVisibilidade()">Alternar Visibilidade</button>
+        </div>
+     </div>
+
+     <!-- EXERCICIO 3 -->
+    <div class="container">
+        <h2>Exercício 3: Validar e Limpar Formulário</h2>
+        <p>Objetivo: Validar um formulário e limpar os campos após o envio.</p>
+        <div>
+            <form id="form">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" />
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" />
+                <button type="submit">Enviar</button>
+            </form>
+            <p id="mensagemErro" style="color: red; display: none;">Por favor, preencha todos os campos.</p>
+        </div>
+      </div>
+
+      <!-- EXERCICIO 04 -->
+    <div class="container">
+        <h2>Exercício 4: Criar uma Tabela Dinamicamente</h2>
+        <p>Objetivo: Criar uma tabela dinamicamente a partir de dados em um array.</p>
+        <div>
+            <table id="tabela">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Idade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>João</td>
+                        <td>25</td>
+                    </tr>
+                    <tr>
+                        <td>Maria</td>
+                        <td>30</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <button onclick="adicionarLinha()">Adicionar Linha</button>
+        </div>
+    </div>
+
+    <!-- EXERCICIO 05 -->
+    <div class="container">
+        <h2>Exercício 5: Drag and Drop Simples</h2>
+        <p>Objetivo: Implementar um recurso de arrastar e soltar (drag and drop) básico.</p>
+        <div>
+            <div style="display: flex; width: 100%; justify-content: space-around; align-items: center;">
+                <div id="arrastavel" draggable="true">
+                    Arraste-me
+                </div>
+                <div id="alvo">
+                    Solte aqui
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <script>
+        // 01
+        function adicionarItem(){
+            const lista = document.getElementById('lista');
+            const item = document.createElement('li');
+            item.innerText = `Item ${lista.children.length + 1}`;
+            lista.appendChild(item);
+        }
+        function removerItem(){
+            const lista = document.getElementById('lista');
+            const item = lista.querySelector('li');
+            if(item){
+                lista.removeChild(item);
+            }
+        }
+
+        // 02
+        function alternarVisibilidade(){
+            const box = document.getElementById('box');
+            box.style.display = box.style.display === 'none' ? 'flex' : 'none';
+        }
+
+        //03
+        document.getElementById('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            if (nome.trim() === '' || email.trim() === '') {
+                document.getElementById('mensagemErro').style.display = 'block';
+            } else {
+                document.getElementById('mensagemErro').style.display = 'none';
+                document.getElementById('form').reset();
+            }
+        });
+
+        // 04
+        const dados = [
+            { nome: 'Huguinho', idade: 25 },
+            { nome: 'Zezinho', idade: 30 },
+            { nome: 'Luizinho', idade: 35 },
+        ];
+        function adicionarLinha(){
+            const tabela = document.getElementById('tabela');
+            
+            dados.forEach((dado) => {
+                const linha = tabela.insertRow();
+                const celulaNome = linha.insertCell();
+                const celulaIdade = linha.insertCell();
+                celulaNome.innerText = dado.nome;
+                celulaIdade.innerText = dado.idade;
+            });
+        }
+
+        // 05
+        const arrastavel = document.getElementById('arrastavel');
+        const alvo = document.getElementById('alvo');
+
+        arrastavel.addEventListener('dragstart', (e) => {
+            e.dataTransfer.setData('text/plain', e.target.id);
+        });
+
+        alvo.addEventListener('dragover', (e) => {
+            e.preventDefault();
+        });
+
+        alvo.addEventListener('drop', (e) => {
+            e.preventDefault();
+            const id = e.dataTransfer.getData('text/plain');
+            const elemento = document.getElementById(id);
+            alvo.appendChild(elemento);
+            alvo.textContent='Item solto';
+        });
+            
+     </script>
+</body>
+</html>
