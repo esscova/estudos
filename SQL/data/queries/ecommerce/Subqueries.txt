@@ -1,0 +1,23 @@
+-- Subquery no WHERE
+-- Informe qual é o veículo mais barato da tabela products
+
+-- Subquery com WITH
+-- Calcule a idade média dos clientes por status profissional
+
+-- Subquery no FROM
+-- Calcule a média de idades dos clientes por status profissional
+
+-- Subquery no SELECT
+-- Na tabela sales.funnel crie uma coluna que informe o nº de visitas acumuladas 
+-- que a loja visitada recebeu até o momento
+
+-- Análise de recorrência dos leads
+-- Calcule o volume de visitas por dia ao site separado por 1ª visita e demais visitas
+
+-- Análise do preço versus o preço médio
+-- Calcule, para cada visita ao site, quanto o preço do um veículo visitado pelo cliente
+-- estava acima ou abaixo do preço médio dos veículos daquela marca 
+-- (levar em consideração o desconto dado no veículo)
+
+-- Crie uma coluna calculada com o número de visitas realizadas por cada
+-- cliente da tabela sales.customers
