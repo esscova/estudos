@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de exercicios: Display Flex - 03</title>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+            .container{
+                max-width: 70rem;
+                margin: 1rem auto;
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                }
+            .container > div{
+                width: 100%;
+                margin-top: 1rem;
+                background-color: #f1efef;
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            .galeria{
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            .galeria img{
+                flex: 1 1 calc(33.33% - 10px);
+                max-width: 200px;
+                height: 200px;
+                border-radius: 8px;
+            }
+            @media (max-width: 768px){
+                .galeria img{
+                    flex: 1 1 calc(50% - 10px);
+                    max-width: 100%;
+                    object-fit: cover;
+                }
+            }
+            @media (max-width: 480px){
+                .galeria img{
+                    flex: 1 1 100%;
+                    max-width: 100%;
+                }
+            }
+            .layout{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                height: 50vh;
+            }
+            .layout header,
+            .layout footer {
+                background-color: #686262;
+                color: white;
+                padding: 1.3rem;
+            }
+            .layout main{
+                flex: 1;
+                background-color: bisque;
+                padding: 1.3rem;
+            }
+            .cards{
+                display: flex;
+                gap: 0.6rem;
+                padding: 1.3rem;
+            }
+            .card{
+                flex: 1;
+                background-color: lightcoral;
+                width: 200px;
+                padding: 1.3rem;
+                text-align: center;
+                border-radius: 8px;
+            }
+            @media (max-width: 768px){
+                .cards{
+                    flex-direction: column;
+                }
+            }
+            .navbar{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .links a{
+                margin-left: 1.3rem;
+                text-decoration: none;
+            }
+            .layout2{
+                width: 100%;
+                height: 50vh;
+                display: flex;
+            }
+            .layout2 aside{
+                flex: 1;
+                background-color: #686262;
+                color: white;
+                text-align: center;
+                padding: 1.3rem;
+            }
+            .layout2 main{
+                flex: 4;
+                padding: 1.3rem;
+                border: 1px solid #ccc;
+            }
+
+</style>
+</head>
+<body>
+    <h1>Display Flex - 03</h1>
+    
+    <!-- EXERCICIO 01 -->
+    <div class="container">
+        <h2>Exercício 1: Layout de Galeria de Imagens com Flexbox</h2>
+        <p>Objetivo: Criar uma galeria de imagens com três colunas que se ajusta ao tamanho da tela.</p>
+        <div>
+            <div class="galeria">
+                <img src="https://picsum.photos/200/300?random=1" alt="Imagem 1">
+                <img src="https://picsum.photos/200/300?random=2" alt="Imagem 2">
+                <img src="https://picsum.photos/200/300?random=3" alt="Imagem 3">
+                <img src="https://picsum.photos/200/300?random=4" alt="Imagem 4">
+                <img src="https://picsum.photos/200/300?random=5" alt="Imagem 5">
+                <img src="https://picsum.photos/200/300?random=6" alt="Imagem 6">
+            </div>
+        </div>
+    </div>
+    
+    <!-- EXERCICIO 02 -->
+     <div class="container">
+        <h2>Exercício 2: Layout de Página com Cabeçalho, Conteúdo e Rodapé</h2>
+        <p>Objetivo: Criar um layout de página com cabeçalho, conteúdo principal e rodapé.</p>
+        <div>
+            <div class="layout">
+                <header>Cabeçalho</header>
+                <main>Conteúdo principal</main>
+                <footer>Rodapé</footer>
+            </div>
+        </div>
+     </div>
+
+    <!-- EXERCICIO 03 -->
+     <div class="container">
+        <h2>Exercício 3: Layout de Cartões com Flexbox</h2>
+        <p>Objetivo: Criar uma linha de cartões (cards) que se ajusta ao tamanho da tela.</p>
+        <div>
+            <div class="cards">
+                <div class="card">card 1</div>
+                <div class="card">card 2</div>
+                <div class="card">card 3</div>
+            </div>
+        </div>
+     </div>
+
+    <!-- EXERCICIO 04 -->
+     <div class="container">
+        <h2>Exercício 4: Layout de Menu de Navegação Horizontal</h2>
+        <p>Objetivo: Criar um menu de navegação horizontal com links alinhados à direita.</p>
+        <div>
+            <nav class="navbar">
+                <div class="logo">LOGO</div>
+                <div class="links">
+                    <a href="#">Home</a>
+                    <a href="#">Sobre</a>
+                    <a href="#">Serviços</a>
+                    <a href="#">Contato</a>
+                </div>
+            </nav>
+        </div>
+     </div>
+
+    <!-- EXERCICIO 05 -->
+     <div class="container">
+        <h2>Exercício 5: Layout de Página com Sidebar e Conteúdo Principal</h2>
+        <p>Objetivo: Criar um layout de página com uma sidebar à esquerda e conteúdo principal à direita.</p>
+        <div>
+            <div class="layout2">
+                <aside>Sidebar</aside>
+                <main>Conteúdo principal</main>
+            </div>
+        </div>
+     </div>
+</body>
+</html>
