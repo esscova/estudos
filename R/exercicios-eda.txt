@@ -1,0 +1,6 @@
+1. Carregamento e Inspeção de Dados
+  - Carregue o dataset `iris` e inspecione as primeiras e últimas linhas.
+  - Verifique a estrutura do dataset (tipos de dados e dimensões).
+
+2. Estatísticas Descritivas
+    - Calcule a média, mediana, desvio padrão e quartis para a coluna `Sepal.Length` do dataset `iris`.
