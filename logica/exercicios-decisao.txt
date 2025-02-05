@@ -1,0 +1,1 @@
+- Uma pessoa quer tirar a carta mas precisa ter 18 anos ou mais , quero que imprima na tela se ela for maior de 18 que pode dirigir e se for menor de 18 que não está apto
