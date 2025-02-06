@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de exercícios: Display Flex - 04</title>
+    <style>
+        *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+            .container{
+                max-width: 70rem;
+                margin: 1rem auto;
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                }
+            .container > div{
+                width: 100%;
+                margin-top: 1rem;
+                background-color: #f1efef;
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            .box01{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                height: 50vh;
+            }
+            .cabecalho{
+                background-color: #686262;
+                color: white;
+                padding: 1.3rem;
+                text-align: center;
+                /* position: fixed; */
+                
+                width: 100%;
+            }
+            .conteudo{
+                flex: 1;
+                background-color: bisque;
+                padding: 1.3rem;
+                overflow-y: auto;
+            }
+            .grade{
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                padding: 1.3rem;
+            }
+            .cartao{
+                flex: 1 1 calc(33.33% - 10px);
+                background-color: lightblue;
+                padding: 1.3rem;
+                text-align: center;
+                border-radius: 8px;
+            }
+            .grande{
+                flex: 1 1 calc(66.66% - 10px);
+            }
+            @media (max-width: 768px){
+                .cartao, .grande {
+                    flex: 1 1 100%;
+                }
+            }
+            .box2{
+                width: 100%;
+                height: 50vh;
+                display: flex;
+            }
+            .sidebar{
+                flex: 1;
+                height: 100%;
+                width: 200px;
+            }
+            .conteudo{
+                flex: 4;
+                margin-left: 220px;
+                overflow-y: auto;
+            }
+            .formulario{
+                display: flex;
+                gap: 10px;
+            }
+            .box3{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 1.3rem;
+            }
+            .secao{
+                display: flex;
+                flex-direction: column;
+                background-color: lightcoral;
+                padding: 1.3rem;
+                border-radius: 8px;
+            }
+            .conteudo-secao{
+                display: flex;
+                gap: 10px;
+            }
+            .conteudo-secao p{
+                flex: 1;
+            }
+    </style>
+</head>
+<body>
+    <h1>Lista de exercícios: Display Flex - 04</h1>
+
+    <!-- EXERCICIO 01 -->
+    <div class="container">
+        <h2>Exercício 1: Layout de Página com Cabeçalho Fixo e Conteúdo Rolável</h2>
+        <p>Objetivo: Criar um layout com cabeçalho fixo no topo e conteúdo rolável abaixo.</p>
+        <div>
+            <div class="box01">
+                <header class="cabecalho">Cabeçalho Fixo</header>
+                <main class="conteudo">
+                    <p>Conteúdo rolável...</p>
+                    <p>Mais conteúdo...</p>
+                    <p>Mais conteúdo...</p>
+                    <p>Mais conteúdo...</p>
+                    <p>Mais conteúdo...</p>
+                    <p>Mais conteúdo...</p>
+                    <p>Mais conteúdo...</p>
+                    <p>Mais conteúdo...</p>
+                    <p>Mais conteúdo...</p>
+                    <p>Mais conteúdo...</p>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- EXERCICIO 02 -->
+    <div class="container">
+        <h2>Exercício 2: Layout de Cartões com Diferentes Tamanhos</h2>
+        <p>Objetivo: Criar uma grade de cartões onde alguns cartões ocupam mais espaço que outros.</p>
+        <div>
+            <div class="grade">
+                <div class="cartao grande">Cartão Grande</div>
+                <div class="cartao">Cartão 1</div>
+                <div class="cartao">Cartão 2</div>
+                <div class="cartao">Cartão 3</div>
+                <div class="cartao">Cartão 4</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EXERCICIO 03 -->
+    <div class="container">
+        <h2>Exercício 3: Layout de Página com Sidebar e Conteúdo Principal Rolável</h2>
+        <p>Objetivo: Criar um layout com uma sidebar fixa e conteúdo principal rolável.</p>
+        <div>
+            <div class="box2">
+                <aside class="sidebar">Sidebar Fixa</aside>
+                <main class="conteudo">
+                    <p>Conteúdo rolável...</p>
+                    <p>Mais conteúdo...</p>
+                    <p>Mais conteúdo...</p>
+                    <p>Mais conteúdo...</p>
+                    <p>Mais conteúdo...</p>
+                    <p>Mais conteúdo...</p>
+                    <p>Mais conteúdo...</p>
+                    <p>Mais conteúdo...</p>
+                    <p>Mais conteúdo...</p>
+                    <p>Mais conteúdo...</p>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- EXERCICIO 04 -->
+    <div class="container">
+        <h2>Exercício 4: Layout de Formulário com Flexbox</h2>
+        <p>Objetivo: Criar um formulário com labels e inputs alinhados horizontalmente.</p>
+        <div>
+            <form class="formulario">
+                <div class="grupo">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome">
+                </div>
+                <div class="grupo">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email">
+                </div>
+                <div class="grupo">
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha">
+                </div>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- EXERCICIO 05 -->
+    <div class="container">
+        <h2>Exercício 5: Layout de Página com Múltiplas Seções</h2>
+        <p>Objetivo: Criar um layout com múltiplas seções, cada uma com um layout flexível.</p>
+        <div>
+            <div class="box3">
+                <section class="secao">
+                    <h2>Seção 1</h2>
+                    <div class="conteudo-secao">
+                        <p>Conteúdo da seção 1...</p>
+                    </div>
+                </section>
+                <section class="secao">
+                    <h2>Seção 2</h2>
+                    <div class="conteudo-secao">
+                        <p>Conteúdo da seção 2...</p>
+                    </div>
+                </section>
+                <section class="secao">
+                    <h2>Seção 3</h2>
+                    <div class="conteudo-secao">
+                        <p>Conteúdo da seção 3...</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
