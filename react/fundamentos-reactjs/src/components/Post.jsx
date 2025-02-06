@@ -1,42 +1,76 @@
+import { useState } from 'react';
+
+import { format, formatDistanceToNow } from 'date-fns';
+import ptBR from 'date-fns/locale/pt-BR'
+
 import { Avatar } from './Avatar';
 import { Comment } from './Comment';
+
 import styles from './Post.module.css'
 
-export function Post (props){
+export function Post ({author, publishedAt, content}){
+    const [comments, setComments] = useState(['post']);
+    const [newCommentText, setNewCommentText] = useState('');
+
+    function handleCreateNewComment(){
+        event.preventDefault();        
+        setComments([...comments, newCommentText]);
+        setNewCommentText("");
+    }
+    function handleNewCommentchange (){
+        setNewCommentText(event.target.value);
+    }
+
+    const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'",{
+        locale: ptBR
+    });
+
+    const publishedRelativeToNow = formatDistanceToNow(publishedAt, {
+        locale: ptBR,
+        addSuffix: true,
+    })
+
     return(
         <article className={styles.post}>
             <header>
                 <div className={styles.author}>
                     <Avatar
-                        src={props.author.avatarUrl}
+                        src={author.avatarUrl}
                     />
                     <div className={styles.authorInfo}>
-                        <strong>{props.author.name}</strong>
-                        <span>{props.author.role}</span>
+                        <strong>{author.name}</strong>
+                        <span>{author.role}</span>
                     </div>
                 </div>
                 <time 
-                    title='31 de Janeiro às 20:29h' 
-                    dateTime="2025-01-01 20:29:33">
-                    Publicado há 1h
+                    title={publishedDateFormatted} 
+                    dateTime={publishedAt.toISOString()}>
+                    {publishedRelativeToNow}
                 </time>
             </header>
             
             <div className={styles.content}>
-                <p>Lorem ipsum</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel perspiciatis similique non, repellendus esse molestias impedit ad qui quam suscipit, dicta dolores explicabo laboriosam quae maiores dolorem, veritatis beatae blanditiis.</p>
-                <p><a href="#">lorem.ipsum/loremipsum</a></p>
-                <p>
-                    <a href="#">#hashtag1</a>{' '} 
-                    <a href="#">#hashtag2</a>{' '}
-                    <a href="#">#hashtag3</a>{' '}
-                </p>
+                {
+                    content.map(line => {
+                        if(line.type === 'paragraph'){
+                            return <p>{line.content}</p>;
+                        }else if (line.type === 'link'){
+                            return <p><a href="#">{line.content}</a></p>;
+                        }
+                    })
+                }
             </div>
 
-            <form className={styles.comentForm}>
+            <form 
+                className={styles.comentForm}
+                onSubmit={handleCreateNewComment}
+            >
                 <strong>Deixe seu feedback</strong>
                 <textarea
                     placeholder='Deixe um comentário'
+                    name='textAreaComment'
+                    value={newCommentText}
+                    onChange={handleNewCommentchange}
                 />
                 <footer>
                     <button type='submit'>Publicar</button>
@@ -44,7 +78,11 @@ export function Post (props){
             </form>
 
             <div className={styles.commentList}>
-                <Comment />
+                {
+                    comments.map(comment => {
+                        return <Comment content={comment}/>;
+                    })
+                }
             </div>
         </article>
     );
