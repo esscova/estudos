@@ -13,3 +13,12 @@ Agregação de Dados
 
 Transformação de Dados
 - Crie uma nova coluna no dataset `iris` chamada `Sepal.Ratio`, que é a razão entre `Sepal.Length` e `Sepal.Width`.
+
+Visualização de Dados (Histograma)
+- Crie um histograma da coluna `Petal.Length` do dataset `iris`.
+
+Visualização de Dados (Boxplot)
+- Crie um boxplot da coluna `Sepal.Width` por espécie no dataset `iris`.
+
+Correlação entre Variáveis
+- Calcule a matriz de correlação entre as colunas numéricas do dataset `iris`.
