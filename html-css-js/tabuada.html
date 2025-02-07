@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: 'Arial', sans-serif;
+            background-color: #ccc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container{
+            width: 100%;
+            max-width: 70rem;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .card{
+            width: 15rem;
+            padding: 1rem;
+            background-color: #fff;
+            box-shadow:rgba(0, 0, 0, 0.3) 5px 5px 15px;
+            border-radius: 8px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .input{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        input{
+            padding: 5px 10px;
+            border-radius: 8px;
+        }
+        button{
+            padding: 5px 15px;
+            border: .15rem solid #1a1a1a;
+            border-radius: 8px;
+            background-color: transparent;
+            color: #3b3b3b;
+            cursor: pointer;
+            transition: all 300ms;
+        }
+        button:hover {
+            color: #fff;
+            background-color: #1A1A1A;
+            box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+            transform: translateY(-2px);
+            }
+        .tabuada{
+            text-align: start;
+            margin-top: 1rem;
+            font-size: 1.3rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Exercício 1 – Faça um programa que capture o evento de um input na sua tela e mostre automaticamente a tabuada desse número abaixo. -->
+    <div class="container">
+        <div class="card">
+            <h1>Tabuada</h1>
+            <div class="input" id="inputBox">
+                <input id="inputNumber" type="number" placeholder="Digite um número ..." value="num"/>
+                <button id="btnCalcular" type="submit">Calcular</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('btnCalcular').addEventListener('click', () => {
+            const inputNumber = document.getElementById('inputNumber');
+            const inputBox = document.getElementById('inputBox');
+            
+            const existingTabuada = document.querySelector('.tabuada');
+            if(existingTabuada){
+                existingTabuada.remove();
+            }
+
+            const numero = parseFloat(inputNumber.value);
+            if(isNaN(numero)){
+                alert("insira um número válido!");
+                return;
+            }
+
+            const tabuadaDiv = document.createElement('div');
+            tabuadaDiv.classList.add('tabuada');
+            for (let i = 1; i<=10; i++){
+                const paragrafo = document.createElement('p');
+                paragrafo.textContent = `${numero} x ${i} = ${numero*i}`;
+                tabuadaDiv.appendChild(paragrafo)
+            }
+
+            inputBox.appendChild(tabuadaDiv);
+            inputNumber.value = ''
+        });
+    </script>
+
+</body>
+</html>
