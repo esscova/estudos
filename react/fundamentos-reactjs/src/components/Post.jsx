@@ -17,7 +17,13 @@ export function Post ({author, publishedAt, content}){
         setComments([...comments, newCommentText]);
         setNewCommentText("");
     }
+
+    function handleNewCommentInvalid (){
+        event.target.setCustomValidity('Campo obrigatório, digite alguma coisa...');
+    }
+
     function handleNewCommentchange (){
+        event.target.setCustomValidity('');
         setNewCommentText(event.target.value);
     }
 
@@ -37,6 +43,7 @@ export function Post ({author, publishedAt, content}){
         addSuffix: true,
     })
 
+    const isNewCommentEmpty = newCommentText.length === 0;
     return(
         <article className={styles.post}>
             <header>
@@ -78,9 +85,16 @@ export function Post ({author, publishedAt, content}){
                     name='textAreaComment'
                     value={newCommentText}
                     onChange={handleNewCommentchange}
+                    onInvalid={handleNewCommentInvalid}
+                    required
                 />
                 <footer>
-                    <button type='submit'>Publicar</button>
+                    <button 
+                        type='submit'
+                        disabled={isNewCommentEmpty}
+                    >
+                        Publicar
+                    </button>
                 </footer>
             </form>
 
