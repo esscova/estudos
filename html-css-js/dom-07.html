@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulando o DOM - 07</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+        .descricao{
+            max-width: 70rem;
+            margin: 1rem auto;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            gap: 10px;
+        }
+        ul{
+            list-style: none;
+        }
+        ul :not(:first-child){
+            margin-top: 1rem;
+        }
+        .calendar th, td{
+            border: solid 1px black;
+            width: 40px;
+            height: 30px;
+        }
+        .calendar{
+           text-align: center;
+        }
+        .inputDates,
+        .inputDates div{
+            margin: 1rem 0;
+        }
+        .inputDates input{
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #diasEntreDatas {
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+        .buttons {
+            margin: 1rem 0;
+            display: flex;
+            gap: 1rem;
+        }
+        button {
+            padding: 0.5rem 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="descricao">
+        <h2>Manipulando DOM</h2>
+        <p>No exemplo abaixo temos uma tabela simples em HTML que representa um calendário</p>
+        <p>Faça um programa que:</p>
+        <ul>
+            <li>colete do usuário duas datas (usando inputs de data) e altere a cor do "quadrado" dessa data no calendário dinamicamente. Por exemplo, se o usuário escolher a data 01/10/2022 – o quadrado da com o dia 1 (quarta-feira) deve mudar de cor.</li>
+            <li>colete do usuário duas datas (usando inputs de data), a seguir faça: 1) calcule quantos dias existem entre elas e exiba na tela (por exemplo, entre 05/04/2022 – 10/04/2022 → 5 dias); 2) mude a cor dos dias entre as datas selecionadas para a cor azul e as datas selecionadas para a cor laranja.</li>
+        </ul>
+    </div>
+
+    <table class="calendar">
+        <thead>
+          <tr>
+            <th>Dom</th>
+            <th>Seg</th>
+            <th>Ter</th>
+            <th>Qua</th>
+            <th>Qui</th>
+            <th>Sex</th>
+            <th>Sab</th>
+            <th>Dom</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            <td>13</td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+            <td>17</td>
+            <td>18</td>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+          </tr>
+          <tr>
+            <td>22</td>
+            <td>23</td>
+            <td>24</td>
+            <td>25</td>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+            <td>29</td>
+          </tr>
+          <tr>
+            <td>30</td>
+            <td>31</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+    </table>
+    
+    <div class="inputDates">
+        <div>
+            <label for="dataInicio">Data de início</label>
+            <input type="date" id="dataInicio"/>
+        </div>
+        
+        <div>
+            <label for="dataFim">Data de fim</label>
+            <input type="date" id="dataFim"/>
+        </div>
+    </div>
+
+    <div class="buttons">
+        <button onclick="marcarDatas()">Marcar Datas</button>
+        <button onclick="calcularIntervalo()">Calcular Intervalo</button>
+    </div>
+
+    <div id="diasEntreDatas"></div>
+
+    <script>
+        const calendario = document.querySelector('.calendar');
+        const linhas = calendario.querySelectorAll('tbody tr');
+        const dataInicio = document.getElementById('dataInicio');
+        const dataFim = document.getElementById('dataFim');
+        const diasEntreDatasDev = document.getElementById('diasEntreDatas');
+
+        function limparCalendario() {
+            linhas.forEach(linha => {
+                linha.querySelectorAll('td').forEach(celula => {
+                    celula.style.backgroundColor = '';
+                });
+            });
+        }
+
+        function mudarCor(data, cor) {
+            if (!data) return;
+            
+            const [ano, mes, dia] = data.split('-');
+            const diaNum = parseInt(dia);
+
+            linhas.forEach(linha => {
+                linha.querySelectorAll('td').forEach(celula => {
+                    const diaCalendario = celula.textContent.trim();
+                    if (diaCalendario && parseInt(diaCalendario) === diaNum) {
+                        celula.style.backgroundColor = cor;
+                    }
+                });
+            });
+        }
+
+        function marcarDatas() {
+            limparCalendario();
+            mudarCor(dataInicio.value, 'orange');
+            mudarCor(dataFim.value, 'orange');
+        }
+
+        function calcularIntervalo() {
+            if (!dataInicio.value || !dataFim.value) {
+                alert('Por favor, selecione ambas as datas');
+                return;
+            }
+
+            limparCalendario();
+
+            const inicio = parseInt(dataInicio.value.split('-')[2]);
+            const fim = parseInt(dataFim.value.split('-')[2]);
+
+            mudarCor(dataInicio.value, 'orange');
+            mudarCor(dataFim.value, 'orange');
+
+            linhas.forEach(linha => {
+                linha.querySelectorAll('td').forEach(celula => {
+                    const diaCalendario = parseInt(celula.textContent.trim());
+                    if (diaCalendario) {
+                        if (diaCalendario > inicio && diaCalendario < fim) {
+                            celula.style.backgroundColor = 'lightblue';
+                        }
+                    }
+                });
+            });
+
+            const diffDias = Math.abs(fim - inicio);
+            diasEntreDatasDev.textContent = `Diferença: ${diffDias} dias`;
+        }
+
+        dataInicio.addEventListener('change', marcarDatas);
+        dataFim.addEventListener('change', marcarDatas);
+    </script>
+</body>
+</html>
