@@ -41,3 +41,15 @@ SELECT
 	COUNT(*)
 FROM faixa_de_renda
 GROUP BY faixa_renda;
+
+-- Tratamento de dados nulos com COALESCE
+-- Crie uma coluna chamada populacao_ajustada na tabela temp_tables.regions e
+-- preencha com os dados da coluna population, mas caso esse campo estiver nulo, 
+-- preencha com a população média (geral) das cidades do Brasil
+SELECT 
+	*,
+	COALESCE(population, (
+		SELECT AVG(population)
+		FROM temp_tables.regions
+	)) AS populacao_ajustada
+FROM temp_tables.regions;
