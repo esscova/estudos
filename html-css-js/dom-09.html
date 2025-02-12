@@ -73,14 +73,9 @@
         component.appendChild(btn);
 
         btn.addEventListener('click', () => {
-            const number = parseInt(input.value);
+            const number = parseInt(input.value); 
             if (isNaN(number) || number < 0) {
                 alert("Por favor, insira um número válido (positivo).");
-                return;
-            }
-
-            if (number > 170) {
-                alert("O número inserido é muito grande para calcular o fatorial.");
                 return;
             }
             
