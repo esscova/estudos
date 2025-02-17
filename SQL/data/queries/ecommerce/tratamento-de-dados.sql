@@ -59,17 +59,57 @@ FROM temp_tables.regions;
 -- de tratamento de texto para que o resultado seja sempre TRUE 
 
 -- select 'São Paulo' = 'SÃO PAULO'
-select upper('São Paulo') = 'SÃO PAULO'
+SELECT UPPER('São Paulo') = 'SÃO PAULO'
 
 
 -- select 'São Paulo' = 'são paulo'
-select lower('São Paulo') = 'são paulo'
+SELECT LOWER('São Paulo') = 'são paulo'
 
 
 -- select 'SÃO PAULO     ' = 'SÃO PAULO'
-select trim('SÃO PAULO     ') = 'SÃO PAULO'
+SELECT TRIM('SÃO PAULO     ') = 'SÃO PAULO'
 
 
 -- select 'SAO PAULO' = 'SÃO PAULO'
-select replace('SAO PAULO', 'SAO', 'SÃO') = 'SÃO PAULO'
+SELECT REPLACE('SAO PAULO', 'SAO', 'SÃO') = 'SÃO PAULO'
 
+-- Soma de datas utilizando INTERVAL
+-- Calcule a data de hoje mais 10 unidades (dias, semanas, meses, horas)
+SELECT current_date + 10;
+SELECT (current_date + interval '10 weeks')::date;
+SELECT (current_date + interval '10 months')::date;
+SELECT current_date + interval '10 hours';
+
+-- Diferença entre datas com operador de subtração (-) 
+-- Calcule a diferença entre hoje e '2018-06-01', em dias, semanas, meses e anos.
+SELECT (current_date - '2018-06-01');
+SELECT (current_date - '2018-06-01')/7;
+SELECT (current_date - '2018-06-01')/30;
+SELECT (current_date - '2018-06-01')/365;
+
+
+-- Truncagem de datas utilizando DATE_TRUNC
+-- Calcule quantas visitas ocorreram por mês no site da empresa
+
+SELECT -- contagem por dia
+	visit_page_date, 
+	COUNT(*)
+FROM sales.funnel
+GROUP BY visit_page_date
+ORDER BY visit_page_date DESC;
+
+SELECT -- contagem por mes
+	DATE_TRUNC('month', visit_page_date)::date AS visit_page_month,
+	COUNT(*)
+FROM sales.funnel
+GROUP BY visit_page_month
+ORDER BY visit_page_month DESC;
+
+-- Extração de unidades de uma data utilizando EXTRACT
+-- Calcule qual é o dia da semana que mais recebe visitas ao site
+SELECT 
+	EXTRACT('dow' FROM visit_page_date) AS dia_da_semana,
+	COUNT(*)
+FROM sales.funnel
+GROUP BY dia_da_semana
+ORDER BY dia_da_semana DESC;
