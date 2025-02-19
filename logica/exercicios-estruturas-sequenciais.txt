@@ -1,1 +1,0 @@
-- Faça um programa que tem  pegue sua idade e mostre o seu ano de nascimento.

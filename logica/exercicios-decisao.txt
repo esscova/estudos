@@ -1,5 +1,0 @@
-Uma pessoa quer tirar a carta mas precisa ter 18 anos ou mais , quero que imprima na tela se ela for maior de 18 que pode dirigir e se for menor de 18 que não está apto.
-
-Crie um programa que peça ao usuário para inserir dois números e verifique se o primeiro número é divisível pelo segundo.
-
-Crie um programa que peça ao usuário para inserir uma temperatura e verifique se está frio, agradável ou quente.
