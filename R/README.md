@@ -11,7 +11,7 @@
     10. Funções Aplicadas
     11. Análise de Dados
     
-﻿## Atividade II
+## Atividade II
 	1. Carregamento e Inspeção de Dados
 	2. Estatísticas Descritivas
 	3. Filtragem de Dados
