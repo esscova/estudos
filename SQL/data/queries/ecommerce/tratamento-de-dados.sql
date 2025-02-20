@@ -113,3 +113,23 @@ SELECT
 FROM sales.funnel
 GROUP BY dia_da_semana
 ORDER BY dia_da_semana DESC;
+
+-- Crie uma função chamada DATEDIFF para calcular a diferença entre
+-- duas datas em dias, semanas, meses, anos
+CREATE FUNCTION datediff (unidade varchar, data_inicial date, data_final date)
+RETURNS INTEGER
+LANGUAGE SQL
+
+AS
+
+$$ 
+	SELECT
+		CASE 
+			WHEN unidade in ('d', 'day', 'days') THEN (data_final - data_inicial)
+			WHEN unidade in ('w', 'week', 'weeks') THEN (data_final - data_inicial)/7
+			WHEN unidade in ('m', 'month', 'months') THEN (data_final - data_inicial)/30
+			WHEN unidade in ('y', 'year', 'years') THEN (data_final - data_inicial)/365
+			END AS diferenca
+$$
+-- chamando a função após declaração
+SELECT datediff('years', '2021-02-04', current_date);
