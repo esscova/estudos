@@ -29,3 +29,4 @@
     3. Testes Estatísticos
     4. Análise de Componentes Principais (PCA)
     5. Regressão Linear
+    6. Análise de Agrupamento

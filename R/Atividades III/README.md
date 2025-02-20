@@ -12,3 +12,6 @@
 
 ### Regressão Linear
 - Ajuste um modelo de regressão linear para prever `mpg` com base em `wt` no dataset `mtcars`.
+
+### Análise de Agrupamento (Clustering)
+- Aplique o algoritmo k-means para agrupar as observações do dataset `iris` (apenas colunas numéricas) em 3 clusters.
