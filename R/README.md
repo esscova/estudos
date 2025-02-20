@@ -14,7 +14,7 @@
 ## Atividade II
 	1. Carregamento e Inspeção de Dados
 	2. Estatísticas Descritivas
-	3. Filtragem de Dados
+	3. Filtragem de Dados\
 	4. Agregação de Dados
 	5. Transformação de Dados
 	6. Visualização de Dados (Histograma)
