@@ -7,8 +7,18 @@
 	Lista de Tarefas Interativa
 
 ## DOM
-	Alterar o Texto de um Elemento
-	Adicionar um Novo Elemento à Lista
-	Alternar a Visibilidade de um Elemento
-	Mudar a Cor de Fundo
-	Validar um Campo de Entrada
+	Alterar o texto de um elemento
+	Adicionar um Novo elemento à lista
+	Alternar a visibilidade de um elemento
+	Mudar a cor de fundo
+	Validar um campo de entrada
+	Modificar o conteúdo de um parágrafo
+	Alterar o estilo de um elemento
+	Criar e adicionar um novo elemento 
+	Remover um elemento da página
+	Manipulação de classes CSS
+
+## Atividades I
+	Página de introdução simples
+
+## CSS
