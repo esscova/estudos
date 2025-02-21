@@ -18,4 +18,5 @@
 ```
 - Verificação de idade
 - Contagem de números
+- Inversão de vetor
 ``
