@@ -15,3 +15,6 @@
 
 ### Análise de Agrupamento (Clustering)
 - Aplique o algoritmo k-means para agrupar as observações do dataset `iris` (apenas colunas numéricas) em 3 clusters.
+
+### Análise de Frequência
+- Crie uma tabela de frequência para a coluna Species do dataset iris.
