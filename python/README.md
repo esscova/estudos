@@ -18,3 +18,7 @@
     5. Mineração de dados
     6. Machine learning
     
+## Atividade III
+    1. Contar caracteres
+    2. Inverter String
+    

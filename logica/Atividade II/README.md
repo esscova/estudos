@@ -6,3 +6,6 @@
 
 ### Inversão de vetor
 - Crie um algoritmo que leia 5 números inteiros e os armazene em um vetor. Em seguida, exiba o vetor na ordem inversa.
+
+### Média de valores 
+- Crie um algoritmo que leia um vetor de 5 números reais. Em seguida, calcule e exiba a média dos valores armazenados no vetor.
