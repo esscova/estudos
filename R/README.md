@@ -30,3 +30,5 @@
     4. Análise de Componentes Principais (PCA)
     5. Regressão Linear
     6. Análise de Agrupamento
+    7. Análise de Frequência
+    8. Exportação de Dados

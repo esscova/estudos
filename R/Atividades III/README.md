@@ -18,3 +18,6 @@
 
 ### Análise de Frequência
 - Crie uma tabela de frequência para a coluna Species do dataset iris.
+
+### Exportação de Dados
+- Exporte o dataset `iris` filtrado para a espécie `virginica` para um arquivo CSV.
