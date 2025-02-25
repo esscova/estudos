@@ -9,3 +9,6 @@
 
 ### Média de valores 
 - Crie um algoritmo que leia um vetor de 5 números reais. Em seguida, calcule e exiba a média dos valores armazenados no vetor.
+
+### Filtrando dados de um vetor 
+- Crie um algoritmo que leia um vetor de 8 números inteiros. Em seguida, verifique se o número 5 está presente no vetor. 
