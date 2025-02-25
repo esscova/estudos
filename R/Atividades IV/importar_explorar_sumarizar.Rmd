@@ -1,0 +1,40 @@
+---
+title: "Atividade II"
+author: Wellington Moreira
+---
+
+### Importar, explorar e sumarizar dados
+
+- Importar um arquivo .csv para o R
+```{r}
+data <- read.csv('./data/CC GENERAL.csv')
+```
+
+- Utilizar dim() para verificar as dimensões dos dados
+```{r}
+dim(data)
+```
+
+- Usar head() e tail() para visualizar as primeiras e últimas linhas do data frame
+```{r}
+head(data)
+```
+```{r}
+tail(data)
+
+```
+
+- Empregar str() para examinar os tipos de dados e obter informações sobre as variáveis
+```{r}
+
+str(data)
+
+```
+
+- Calcular estatísticas descritivas como média, mediana e desvio padrão
+
+```{r}
+summary(data)
+
+```
+

@@ -32,3 +32,6 @@
     6. Análise de Agrupamento
     7. Análise de Frequência
     8. Exportação de Dados
+    
+## Atividade IV
+    1. Importar, explorar e sumarizar dados
