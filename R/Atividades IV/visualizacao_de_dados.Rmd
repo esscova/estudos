@@ -1,0 +1,71 @@
+---
+title: "Atividade II - visualização de dados"
+author: Wellington Moreira
+---
+
+## Visualização de dados
+Criar diferentes tipos de gráficos para visualizar os dados.
+
+```{r}
+# pacotes
+library(ggplot2)
+```
+
+```{r}
+# carregando dados
+data(mtcars)
+head(mtcars)
+```
+
+
+### Gerar gráficos de dispersão para identificar relações entre variáveis.
+```{r}
+# drat x mpg com ggplot
+ggplot(mtcars, aes(x = drat, y = mpg, color=factor(cyl))) +
+  geom_point() 
+```
+
+```{r}
+# drat x mpg com plot
+plot(mtcars$drat, mtcars$mpg, pch=19)
+```
+
+```{r}
+# matriz de dispersao
+pairs(~mpg+disp+drat+wt, data = mtcars)
+```
+### Construir boxplots para identificar outliers e comparar distribuições.
+
+```{r}
+# boxplot mpg para cada num cilindros
+boxplot(mpg ~ cyl, data=mtcars)
+```
+```{r}
+# com ggplot
+ggplot(mtcars, aes(x=factor(cyl), y=mpg)) +
+  geom_boxplot(outlier.color = "red")
+```
+
+```{r}
+# boxplot para mais variaveis
+boxplot(mtcars$mpg, mtcars$hp, mtcars$wt)
+```
+### Utilizar histogramas e gráficos de densidade para examinar a distribuição de uma única variável.
+
+```{r}
+# hist de milhas por galao
+hist(mtcars$mpg, breaks = 10)
+```
+```{r}
+# hist com densidade
+hist(mtcars$mpg, breaks = 10, probability = T)
+lines(density(mtcars$mpg), lwd=2)
+```
+```{r}
+# hist com densidade usando ggplot
+ggplot(mtcars, aes(x = mpg)) + 
+  geom_histogram(aes(y = after_stat(density)), color = "black", fill = "lightblue", binwidth = 2) + 
+  geom_density(color = "red")
+
+```
+

@@ -35,3 +35,4 @@
     
 ## Atividade IV
     1. Importar, explorar e sumarizar dados
+    2. Visualização de dados
