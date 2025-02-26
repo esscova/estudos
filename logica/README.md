@@ -20,5 +20,6 @@
 - Contagem de números
 - Inversão de vetor
 - Média de valores
-- Filtrando dados de um vetor
-``
+- Pesquisando dados de um vetor
+- Cálculo de alíquota
+```
