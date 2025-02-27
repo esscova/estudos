@@ -85,4 +85,17 @@ VALUES
 
 -- visualizando 
 SELECT * FROM temp_tables.profissoes;
+
+/*
+	EXERCICIO 05
+	- Atualização de linhas
+	- Corrija a tradução de 'estagiário(a)' de 'trainee' para 'intern' 
+*/
+
+UPDATE temp_tables.profissoes
+SET professional_status = 'intern'
+WHERE status_profissional = 'estagiario(a)';
+
+-- visualizando 
+SELECT * FROM temp_tables.profissoes;
 	
