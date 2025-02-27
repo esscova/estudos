@@ -1,0 +1,80 @@
+---
+title: "Atividade II - Preprocessamento e limpeza de dados"
+author: Wellington Moreira
+---
+
+**Pré-processamento e limpeza de dados**
+
+```{r}
+# gerando dados
+set.seed(123)
+
+n <- 100 #linhas
+idade <- sample(18:70,n, replace = T)
+salario <- round(rnorm(n, mean = 3500, sd=1200),2)
+altura <- round(runif(n, min = 1.50, max = 1.90),2)
+sexo <- sample(c("masculino", "feminino"),n, replace = T)
+cidade <- sample(c("SP", "RJ", "MG"), n, replace = T)
+
+# NAs
+idade[sample(1:n, 10)] <- NA
+salario[sample(1:n, 5)] <- NA
+altura[sample(1:n,  8)] <- NA
+
+dados <- data.frame(idade, salario, altura, sexo, cidade)
+dados <- rbind(dados, dados[sample(1:n, 10),]) #duplicados
+
+head(dados)
+```
+
+*Identificar e tratar valores faltantes.*
+
+```{r}
+# identificando valores NAs
+sum(is.na(dados))
+```
+```{r}
+# tratando
+dados$idade[is.na(dados$idade)] <- mean(dados$idade, na.rm=T)
+dados$salario[is.na(dados$salario)] <- mean(dados$salario, na.rm=T)
+dados$altura[is.na(dados$altura)] <- mean(dados$altura, na.rm=T)
+
+# verificando
+sum(is.na(dados))
+```
+*Converter variáveis para o tipo correto (numérico, fator, etc.)*
+
+```{r}
+str(dados)
+```
+
+```{r}
+# convertendo para fator
+dados$sexo <- as.factor(dados$sexo)
+dados$cidade <- as.factor(dados$cidade)
+
+str(dados)
+```
+
+*Normalizar ou padronizar dados numéricos*
+
+```{r}
+# normalizando min-max
+dados$idade <- (dados$idade - min(dados$idade)) / (max(dados$idade) - min(dados$idade))
+dados$salario <- (dados$salario - min(dados$salario)) / (max(dados$salario) - min(dados$salario))
+dados$altura <- (dados$altura - min(dados$altura)) / (max(dados$altura) - min(dados$altura))
+
+head(dados[, c("idade", "salario", "altura")])
+```
+
+*Remover duplicatas ou dados irrelevantes*
+
+```{r}
+sum(duplicated(dados))
+```
+
+```{r}
+dados_tratados <- dados[!duplicated(dados), ]
+sum(duplicated(dados_tratados))
+```
+

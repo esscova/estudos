@@ -11,3 +11,9 @@
     - Gerar gráficos de dispersão para identificar relações entre variáveis.
     - Construir boxplots para identificar outliers e comparar distribuições.
     - Utilizar histogramas e gráficos de densidade para examinar a distribuição de uma única variável.
+
+3.  **Pré-processamento e limpeza de dados**.
+    - Identificar e tratar valores faltantes.
+    - Converter variáveis para o tipo correto (numérico, fator, etc.).
+    - Normalizar ou padronizar dados numéricos.
+    - Remover duplicatas ou dados irrelevantes.
