@@ -22,8 +22,17 @@ Crie um algoritmo que receba o salário bruto de um funcionário e calcule o val
     - 12% para os que ganham entre R$ 2.793,89 até R$ 4.190,83;
     - 14% para quem ganha de R$ 4.190,84 até R$ 8.157,41.
 
-### Caixa eletrônica
+### Caixa eletrônico
 Crie um algoritmo que simule um sistema de caixa eletrônico. O usuário deve digitar a senha e o valor que deseja sacar. 
 
 - O sistema deve verificar se a senha está correta e se o saldo da conta é suficiente para realizar o saque. 
 - Utilize as estruturas de decisão condicional simples e composta (_if-else_) para implementar as validações necessárias e exibir as mensagens apropriadas na tela.
+
+### Classificador de triângulos
+Crie um algoritmo que receba três valores, representando os lados de um triângulo, e determine o tipo de triângulo: 
+
+- **equilátero** (todos os lados iguais),
+- **isósceles** (dois lados iguais) ou
+- **escaleno** (todos os lados diferentes). 
+
+Utilize a estrutura de decisão condicional encadeada (_if-else-if_) para implementar a lógica de classificação do triângulo.

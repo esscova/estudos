@@ -23,4 +23,5 @@
 - Pesquisando dados de um vetor
 - Cálculo de alíquota
 - Caixa eletrônico
+- Classificador de triângulos
 ```
