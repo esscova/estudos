@@ -37,3 +37,4 @@
     1. Importar, explorar e sumarizar dados
     2. Visualização de dados
     3. Preprocessamento e limpeza de dados
+    4. Modelagem e inferência

@@ -17,3 +17,11 @@
     - Converter variáveis para o tipo correto (numérico, fator, etc.).
     - Normalizar ou padronizar dados numéricos.
     - Remover duplicatas ou dados irrelevantes.
+    
+4.   **Modelagem e Inferência**.
+    - Ajustar um modelo linear usando o método dos mínimos quadrados.
+    - Dividir os dados em conjuntos de treinamento e teste.
+    - Estimar o risco do modelo usando validação cruzada ou data splitting.
+    - Avaliar o desempenho do modelo usando métricas apropriadas (RMSE, R², acurácia, etc.).
+    - Utilizar regressão linear, árvores de regressão e KNN para regressão.
+    - Implementar regressão logística para problemas de classificação.
