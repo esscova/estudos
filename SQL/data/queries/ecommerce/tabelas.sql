@@ -98,4 +98,18 @@ WHERE status_profissional = 'estagiario(a)';
 
 -- visualizando 
 SELECT * FROM temp_tables.profissoes;
-	
+
+/*
+	EXERCICIO 06
+	- Deleção de linhas
+	- Delete as linhas dos status 'desempregado(a)' e 'estagiário(a)'
+*/
+
+DELETE FROM temp_tables.profissoes
+WHERE 
+	status_profissional = 'desempregado(a)'
+	OR
+	status_profissional = 'estagiario(a)';
+
+-- visualizando 
+SELECT * FROM temp_tables.profissoes;
