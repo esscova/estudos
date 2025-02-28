@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estilos de botões</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            max-width: 1024px;
+            padding: 1rem;
+            margin: 0 auto;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .btnBox{
+            display: flex;
+            /* flex-direction: column; */
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .btn{
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease; 
+        }
+        .btn-primary {
+            background: linear-gradient(45deg, #007BFF, #0056b3);
+            color: #fff;
+        }
+        .btn-secondary {
+            background: linear-gradient(45deg, #6C757D, #495057);
+            color: #fff;
+        }
+        .btn-danger {
+            background: linear-gradient(45deg, #DC3545, #c82333);
+            color: #fff;
+        }
+        .btn-success {
+            background: linear-gradient(45deg, #28A745, #218838);
+            color: #fff;
+        }
+        .btn-warning {
+            background: linear-gradient(45deg, #FFC107, #e0a800);
+            color: #fff;
+        }
+        .btn-info {
+            background: linear-gradient(45deg, #17A2B8, #138496);
+            color: #fff;
+        }
+        .btn-light {
+            background: linear-gradient(45deg, #F8F9FA, #e2e6ea);
+            color: #000;
+        }
+        .btn-dark {
+            background: linear-gradient(45deg, #343A40, #23272b);
+            color: #fff;
+        }
+
+        .btn:hover {
+            transform: scale(1.1); 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+        }
+        .btn-primary:hover {
+            background: linear-gradient(45deg, #0056b3, #007BFF);
+        }
+        .btn-secondary:hover {
+            background: linear-gradient(45deg, #495057, #6C757D);
+        }
+        .btn-danger:hover {
+            background: linear-gradient(45deg, #c82333, #DC3545);
+        }
+        .btn-success:hover {
+            background: linear-gradient(45deg, #218838, #28A745);
+        }
+        .btn-warning:hover {
+            background: linear-gradient(45deg, #e0a800, #FFC107);
+        }
+        .btn-info:hover {
+            background: linear-gradient(45deg, #138496, #17A2B8);
+        }
+        .btn-light:hover {
+            background: linear-gradient(45deg, #e2e6ea, #F8F9FA);
+        }
+        .btn-dark:hover {
+            background: linear-gradient(45deg, #23272b, #343A40);
+        }
+    </style>
+</head>
+<body>
+    <h1>Estilos de botões</h1>
+    
+    <div class="btnBox">
+        <button class="btn">Botão Padrão</button>
+        <button class="btn btn-primary">Botão Primário</button>
+        <button class="btn btn-secondary">Botão Secundário</button>
+        <button class="btn btn-danger">Botão Perigo</button>
+        <button class="btn btn-success">Botão Sucesso</button>
+        <button class="btn btn-warning">Botão Aviso</button>
+        <button class="btn btn-info">Botão Info</button>
+        <button class="btn btn-light">Botão Claro</button>
+        <button class="btn btn-dark">Botão Escuro</button>
+    </div>
+</body>
+</html>
