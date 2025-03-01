@@ -24,4 +24,5 @@
 - Cálculo de alíquota
 - Caixa eletrônico
 - Classificador de triângulos
+- Soma de pares
 ```
