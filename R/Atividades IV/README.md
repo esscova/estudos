@@ -1,5 +1,5 @@
 ### Atividades IV
-1. **Importar, explorar e sumarizar dados**
+1.  **Importar, explorar e sumarizar dados**
     - Importar um arquivo .csv para o R.
     - Utilizar `dim()` para verificar as dimensões dos dados.
     - Usar `head()` e `tail()` para visualizar as primeiras e últimas linhas do data frame.
@@ -18,10 +18,17 @@
     - Normalizar ou padronizar dados numéricos.
     - Remover duplicatas ou dados irrelevantes.
     
-4.   **Modelagem e Inferência**.
+4.  **Modelagem e Inferência**.
     - Ajustar um modelo linear usando o método dos mínimos quadrados.
     - Dividir os dados em conjuntos de treinamento e teste.
     - Estimar o risco do modelo usando validação cruzada ou data splitting.
     - Avaliar o desempenho do modelo usando métricas apropriadas (RMSE, R², acurácia, etc.).
     - Utilizar regressão linear, árvores de regressão e KNN para regressão.
     - Implementar regressão logística para problemas de classificação.
+    
+5.  **Algoritmos de Classificação**.
+    - Implementar árvores de classificação para análise preditiva.
+    - Utilizar o algoritmo Naive Bayes para classificação.
+    - Aplicar bagging e florestas aleatórias para melhorar a precisão da classificação.
+    - Explorar redes neurais artificiais para tarefas de classificação complexas.
+    - Ajustar modelos SVM para classificação com diferentes kernels.

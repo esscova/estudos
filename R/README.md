@@ -38,3 +38,4 @@
     2. Visualização de dados
     3. Preprocessamento e limpeza de dados
     4. Modelagem e inferência
+    5. Algoritmos de classificação

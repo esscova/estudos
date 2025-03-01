@@ -1,0 +1,117 @@
+---
+title: "Atividades II - Algoritmos de classificação"
+author: "Wellington M Santos"
+---
+
+**Algoritmos de Classificação**.
+- Implementar árvores de classificação para análise preditiva.
+- Utilizar o algoritmo Naive Bayes para classificação.
+- Aplicar bagging e florestas aleatórias para melhorar a precisão da classificação.
+- Explorar redes neurais artificiais para tarefas de classificação complexas.
+- Ajustar modelos SVM para classificação com diferentes kernels.
+
+```{r}
+install.packages("randomForest")
+```
+
+
+## Arvores de classificação
+```{r}
+library(rpart)
+
+data(iris)
+
+# treino e teste 7/3
+set.seed(123)
+train_idx <- sample(1:nrow(iris), 0.7 * nrow(iris))
+train_data <- iris[train_idx, ]
+test_data <- iris[-train_idx, ]
+
+# arvore
+tree_model <- rpart(Species ~ ., data = train_data, method = "class")
+
+# pred
+predictions <- predict(tree_model, test_data, type = "class")
+
+# metrica
+accuracy <- mean(predictions == test_data$Species)
+cat("Acurácia da árvore:", accuracy, "\n")
+```
+
+## Naive Bayes
+```{r}
+
+library(e1071)
+
+# treino
+nb_model <- naiveBayes(Species ~ ., data = train_data)
+nb_predictions <- predict(nb_model, test_data)
+
+# metrica
+nb_accuracy <- mean(nb_predictions == test_data$Species)
+cat("Acurácia do Naive Bayes:", nb_accuracy, "\n")
+```
+
+## Random Forest
+```{r}
+# Carregar pacote
+library(randomForest)
+
+# Treinar o modelo Random Forest
+rf_model <- randomForest(Species ~ ., data = train_data, ntree = 100, importance = TRUE)
+
+# Fazer previsões
+rf_predictions <- predict(rf_model, test_data)
+
+# Avaliar a acurácia
+rf_accuracy <- mean(rf_predictions == test_data$Species)
+cat("Acurácia do Random Forest:", rf_accuracy, "\n")
+
+# Verificar importância das variáveis
+importance(rf_model)
+varImpPlot(rf_model)
+```
+
+## ARN
+```{r}
+# Carregar pacote
+library(nnet)
+
+# Converter Species para dummy (necessário para nnet)
+train_data_nnet <- train_data
+train_data_nnet$Species <- as.factor(train_data_nnet$Species)
+test_data_nnet <- test_data
+
+# Treinar a rede neural
+nn_model <- nnet(Species ~ ., data = train_data_nnet, size = 5, maxit = 200)
+
+# Fazer previsões
+nn_predictions <- predict(nn_model, test_data_nnet, type = "class")
+
+# Avaliar a acurácia
+nn_accuracy <- mean(nn_predictions == test_data$Species)
+cat("Acurácia da Rede Neural:", nn_accuracy, "\n")
+```
+
+## SVM 
+```{r}
+# Testar diferentes kernels
+# Kernel Linear
+svm_linear <- svm(Species ~ ., data = train_data, kernel = "linear", cost = 1)
+svm_linear_pred <- predict(svm_linear, test_data)
+linear_accuracy <- mean(svm_linear_pred == test_data$Species)
+cat("Acurácia SVM Linear:", linear_accuracy, "\n")
+
+# Kernel Radial (RBF)
+svm_radial <- svm(Species ~ ., data = train_data, kernel = "radial", cost = 1, gamma = 0.1)
+svm_radial_pred <- predict(svm_radial, test_data)
+radial_accuracy <- mean(svm_radial_pred == test_data$Species)
+cat("Acurácia SVM Radial:", radial_accuracy, "\n")
+
+# Kernel Polinomial
+svm_poly <- svm(Species ~ ., data = train_data, kernel = "polynomial", cost = 1, degree = 3)
+svm_poly_pred <- predict(svm_poly, test_data)
+poly_accuracy <- mean(svm_poly_pred == test_data$Species)
+cat("Acurácia SVM Polinomial:", poly_accuracy, "\n")
+```
+
