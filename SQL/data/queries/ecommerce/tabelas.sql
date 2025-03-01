@@ -113,3 +113,25 @@ WHERE
 
 -- visualizando 
 SELECT * FROM temp_tables.profissoes;
+
+/*
+	EXERCÍCIO 07
+	- Inserção de Colunas
+	- Insira uma coluna na tabela sales.customers com a idade do cliente
+*/
+
+ALTER TABLE sales.customers
+ADD customer_age INT;
+
+-- visualizando
+SELECT * FROM sales.customers LIMIT 3;
+
+-- populando atributo
+UPDATE sales.customers
+SET customer_age = (current_date - birth_date)/365
+WHERE TRUE;
+
+
+
+
+
