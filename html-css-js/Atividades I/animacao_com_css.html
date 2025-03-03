@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animação com CSS</title>
+    <style>
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f1f1f1;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            line-height: 200px;
+            animation: slide 2s ease-in-out infinite alternate;
+        }
+        @keyframes slide {
+            0%{
+                transform: translateX(0);
+            }
+            100%{
+                transform: translateX(200px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <p>Conteúdo</p>
+        </div>
+    </div>
+    
+</body>
+</html>
