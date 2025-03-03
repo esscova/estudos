@@ -6,7 +6,7 @@
     - Empregar `str()` para examinar os tipos de dados e obter informações sobre as variáveis.
     - Calcular estatísticas descritivas como média, mediana e desvio padrão.
 
-2. - **Visualização de dados**.
+2.  **Visualização de dados**.
     - Criar diferentes tipos de gráficos para visualizar os dados.
     - Gerar gráficos de dispersão para identificar relações entre variáveis.
     - Construir boxplots para identificar outliers e comparar distribuições.
@@ -32,3 +32,10 @@
     - Aplicar bagging e florestas aleatórias para melhorar a precisão da classificação.
     - Explorar redes neurais artificiais para tarefas de classificação complexas.
     - Ajustar modelos SVM para classificação com diferentes kernels.
+
+6.  **Manipulação de Dados com dplyr**
+    - Crie um data frame com as seguintes colunas: nome (caracteres), idade (numérico), salario (numérico) e cidade (caracteres). Use o pacote dplyr para:
+        - Filtrar apenas as pessoas com idade maior que 30 anos.
+        - Ordenar o resultado por salário em ordem decrescente.
+        - Calcular a média salarial por cidade.
+    - Dica: Use funções como filter(), arrange() e group_by() com summarise().

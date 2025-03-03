@@ -39,3 +39,4 @@
     3. Preprocessamento e limpeza de dados
     4. Modelagem e inferência
     5. Algoritmos de classificação
+    6. Manipulação de dados com dplyr
