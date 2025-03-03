@@ -131,7 +131,17 @@ UPDATE sales.customers
 SET customer_age = (current_date - birth_date)/365
 WHERE TRUE;
 
+/*
+	EXERCICIO 08
+	- Alteração do tipo da coluna
+	- Altere o tipo da coluna customer_age de inteiro para varchar
+*/
 
+ALTER TABLE sales.customers
+ALTER COLUMN customer_age TYPE VARCHAR;
+
+-- visualizando
+SELECT * FROM sales.customers LIMIT 5;
 
 
 
