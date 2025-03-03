@@ -35,3 +35,6 @@ Utilize a estrutura de decisão condicional encadeada (_if-else-if_) para implem
 
 ### Soma de pares 
 Crie um algoritmo que solicite ao usuário um número inteiro positivo e calcule a soma de todos os números pares de 1 até o número informado.
+
+### Contador de primos
+Faça um algoritmo que leia 10 números inteiros e apresente a quantidade de números primos digitados.

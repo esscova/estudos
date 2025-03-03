@@ -25,4 +25,5 @@
 - Caixa eletrônico
 - Classificador de triângulos
 - Soma de pares
+- Contador de primos
 ```
