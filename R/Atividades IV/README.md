@@ -39,3 +39,12 @@
         - Ordenar o resultado por salário em ordem decrescente.
         - Calcular a média salarial por cidade.
     - Dica: Use funções como filter(), arrange() e group_by() com summarise().
+
+7. **Visualização com ggplot2**
+
+Usando o data frame do Exercício 1 (ou o dataset interno `mtcars`, se preferir), crie:
+
+- Um gráfico de dispersão (scatter plot) mostrando a relação entre `idade` e `salario` (ou `mpg` e `hp` no caso de `mtcars`).
+- Adicione cores diferentes para cada `cidade` (ou `cyl` no caso de `mtcars`).
+- Inclua uma linha de tendência com `geom_smooth()`.
+- Dica: Use o pacote `ggplot2` e explore as camadas (`aes()`, `geom_point()`, etc.).
