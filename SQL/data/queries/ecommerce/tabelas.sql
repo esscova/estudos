@@ -143,5 +143,15 @@ ALTER COLUMN customer_age TYPE VARCHAR;
 -- visualizando
 SELECT * FROM sales.customers LIMIT 5;
 
+/*
+	EXERCICIO 09
+	- Alteração do nome da coluna
+	- Renomeie o nome da coluna "customer_age" para "age"
+*/
 
+ALTER TABLE sales.customers
+RENAME COLUMN customer_age TO age;
+
+-- visualizando
+SELECT * FROM sales.customers LIMIT 5;
 
