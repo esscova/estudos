@@ -1,6 +1,6 @@
 ﻿# Lógica de Programação com Portugol
 
-## Atividades I
+### Atividades I
 ```
 - Verificação de idade
 - Comparações de números
@@ -14,7 +14,7 @@
 - Soma dos números em uma lista
 ```
 
-## Atividades II
+### Atividades II
 ```
 - Verificação de idade
 - Contagem de números
@@ -26,4 +26,9 @@
 - Classificador de triângulos
 - Soma de pares
 - Contador de primos
+```
+
+### Atividade III
+```
+- Triângulo de asteriscos
 ```
