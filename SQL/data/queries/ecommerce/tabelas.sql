@@ -155,3 +155,14 @@ RENAME COLUMN customer_age TO age;
 -- visualizando
 SELECT * FROM sales.customers LIMIT 5;
 
+/*
+	EXERCICIO 10
+	- Deleção de coluna
+	- Delete a coluna "age"
+*/
+
+ALTER TABLE sales.customers
+DROP COLUMN age;
+
+-- visualizando
+SELECT * FROM sales.customers LIMIT 5;
