@@ -31,4 +31,5 @@
 ### Atividade III
 ```
 - Triângulo de asteriscos
+- Sequência de Fibonacci
 ```
