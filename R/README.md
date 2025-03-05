@@ -41,3 +41,4 @@
     5. Algoritmos de classificação
     6. Manipulação de dados com dplyr
     7. Visualização com ggplot2
+    8. Análise estatística básica

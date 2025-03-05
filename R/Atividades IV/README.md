@@ -48,3 +48,11 @@ Usando o data frame do Exercício 1 (ou o dataset interno `mtcars`, se preferir)
 - Adicione cores diferentes para cada `cidade` (ou `cyl` no caso de `mtcars`).
 - Inclua uma linha de tendência com `geom_smooth()`.
 - Dica: Use o pacote `ggplot2` e explore as camadas (`aes()`, `geom_point()`, etc.).
+
+8. **Análise estatística básica**
+- Carregue o dataset `iris` (disponível no R) e:
+    - Calcule a média, mediana e desvio padrão do comprimento das pétalas (`Petal.Length`) para cada espécie (`Species`).
+    - Use a função `aggregate()` ou `dplyr` para agrupar os dados.
+    - Crie um boxplot para visualizar a distribuição de `Petal.Length` por espécie.
+
+    - **Dica:** Funções úteis: `mean()`, `median()`, `sd()`, `boxplot()`.
