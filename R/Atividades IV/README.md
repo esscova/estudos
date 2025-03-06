@@ -56,3 +56,19 @@ Usando o data frame do Exercício 1 (ou o dataset interno `mtcars`, se preferir)
     - Crie um boxplot para visualizar a distribuição de `Petal.Length` por espécie.
 
     - **Dica:** Funções úteis: `mean()`, `median()`, `sd()`, `boxplot()`.
+
+9. **Tratamento de dados faltantes**
+
+Crie um vetor ou data frame com alguns valores ausentes (use NA). Por exemplo:
+
+```
+dados <- data.frame(
+  nome = c("Ana", "Bruno", "Clara", "Diego"),
+  vendas = c(100, NA, 250, NA)
+)
+```
+
+- Identifique quais linhas têm valores faltantes.
+- Remova as linhas com NA, atribua a um novo dataframe e compare os resultados.
+- Substitua os valores NA pela média das vendas não ausentes.
+

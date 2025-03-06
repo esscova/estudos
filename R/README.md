@@ -42,3 +42,4 @@
     6. Manipulação de dados com dplyr
     7. Visualização com ggplot2
     8. Análise estatística básica
+    9. Tratamento de dados faltantes
