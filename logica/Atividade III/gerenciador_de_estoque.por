@@ -1,15 +1,6 @@
-//  Crie um algoritmo que simule um menu de opções para um sistema de gerenciamento de estoque.
-//  O menu deve apresentar as seguintes opções: 
-//  1 - Cadastrar produto, 
-//  2 - Consultar produto, 
-//  3 - Baixar estoque, 
-//  4 - Sair. 
-//  O usuário deve selecionar a opção desejada e o sistema deve executar a ação correspondente. 
-//  Utilize a estrutura de seleção múltipla escolha (_switch-case_) para implementar o menu de opções.
-
 programa {
   funcao inicio() {
-    
+                  // GERENCIADOR DE ESTOQUE    
     inteiro opcao
     real estoque
     
