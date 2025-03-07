@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .calculadora {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            max-width: 320px;
+            width: 100%;
+        }
+        
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        #display {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 24px;
+            text-align: right;
+            background-color: #f9f9f9;
+            box-sizing: border-box;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .teclas {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+        }
+        
+        .btn {
+            height: 60px;
+            border: none;
+            border-radius: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .btn:active {
+            transform: scale(0.95);
+        }
+        
+        .numero {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        
+        .numero:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .operador {
+            background-color: #ffa726;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .operador:hover {
+            background-color: #ff9800;
+        }
+        
+        .clear {
+            background-color: #ef5350;
+            color: white;
+        }
+        
+        .clear:hover {
+            background-color: #e53935;
+        }
+        
+        .igual {
+            background-color: #66bb6a;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .igual:hover {
+            background-color: #4caf50;
+        }
+        
+        .zero {
+            grid-column: span 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculadora">
+        <h1>Calculadora</h1>
+        <input type="text" id="display" readonly>
+        <div class="teclas">
+            <button class="btn clear" id="clear">C</button>
+            <button class="btn clear" id="backspace">⌫</button>
+            <button class="btn operador" id="porcentagem">%</button>
+            <button class="btn operador" id="divide">÷</button>
+            
+            <button class="btn numero" id="seven">7</button>
+            <button class="btn numero" id="eight">8</button>
+            <button class="btn numero" id="nine">9</button>
+            <button class="btn operador" id="multiply">×</button>
+            
+            <button class="btn numero" id="four">4</button>
+            <button class="btn numero" id="five">5</button>
+            <button class="btn numero" id="six">6</button>
+            <button class="btn operador" id="subtract">-</button>
+            
+            <button class="btn numero" id="one">1</button>
+            <button class="btn numero" id="two">2</button>
+            <button class="btn numero" id="three">3</button>
+            <button class="btn operador" id="add">+</button>
+            
+            <button class="btn numero zero" id="zero">0</button>
+            <button class="btn numero" id="decimal">.</button>
+            <button class="btn igual" id="equals">=</button>
+        </div>
+    </div>
+    <script>
+        const display = document.getElementById('display');
+        const numeros = document.querySelectorAll('.numero');
+        const operadores = document.querySelectorAll('.operador');
+        const igual = document.getElementById('equals');
+        const clear = document.getElementById('clear');
+        const backspace = document.getElementById('backspace');
+        const porcentagem = document.getElementById('porcentagem');
+        
+        let operacaoAtual = '';
+        let calculoEmAndamento = false;
+        
+        // Adiciona os números ao display
+        numeros.forEach(numero => {
+            numero.addEventListener('click', () => {
+                if (calculoEmAndamento) {
+                    display.value = '';
+                    calculoEmAndamento = false;
+                }
+                
+                // Evita múltiplos zeros no início
+                if (display.value === '0' && numero.textContent !== '.') {
+                    display.value = numero.textContent;
+                } else {
+                    // Evita múltiplos pontos decimais
+                    if (numero.textContent === '.' && display.value.includes('.')) {
+                        return;
+                    }
+                    
+                    display.value += numero.textContent;
+                }
+            });
+        });
+        
+        // Adiciona os operadores ao cálculo
+        operadores.forEach(operador => {
+            operador.addEventListener('click', () => {
+                if (display.value === '') return;
+                
+                calculoEmAndamento = false;
+                
+                let simbolo;
+                switch (operador.textContent) {
+                    case '÷':
+                        simbolo = '/';
+                        break;
+                    case '×':
+                        simbolo = '*';
+                        break;
+                    default:
+                        simbolo = operador.textContent;
+                }
+                
+                // Evita operadores consecutivos
+                const ultimoCaractere = operacaoAtual.slice(-1);
+                if (['+', '-', '*', '/'].includes(ultimoCaractere) && ['+', '-', '*', '/'].includes(simbolo)) {
+                    operacaoAtual = operacaoAtual.slice(0, -1) + simbolo;
+                } else {
+                    operacaoAtual += display.value + simbolo;
+                }
+                
+                display.value = '';
+            });
+        });
+        
+        // Calcula o resultado
+        igual.addEventListener('click', () => {
+            if (display.value === '' || operacaoAtual === '') return;
+            
+            try {
+                operacaoAtual += display.value;
+                
+                // Substitui operadores incorretos para o eval
+                let calculo = operacaoAtual.replace(/×/g, '*').replace(/÷/g, '/');
+                
+                // Avalia a expressão
+                let resultado = eval(calculo);
+                
+                // Formata o resultado para evitar números muito longos
+                if (Number.isInteger(resultado)) {
+                    display.value = resultado;
+                } else {
+                    display.value = resultado.toFixed(8).replace(/\.?0+$/, '');
+                }
+                
+                operacaoAtual = '';
+                calculoEmAndamento = true;
+            } catch (error) {
+                display.value = 'Erro';
+                operacaoAtual = '';
+                calculoEmAndamento = true;
+            }
+        });
+        
+        // Limpa o display e operações
+        clear.addEventListener('click', () => {
+            display.value = '';
+            operacaoAtual = '';
+            calculoEmAndamento = false;
+        });
+        
+        // Remove o último caractere
+        backspace.addEventListener('click', () => {
+            display.value = display.value.slice(0, -1);
+        });
+        
+        // Funcionalidade de porcentagem
+        porcentagem.addEventListener('click', () => {
+            if (display.value === '') return;
+            
+            display.value = parseFloat(display.value) / 100;
+        });
+        
+        // Adiciona suporte ao teclado
+        document.addEventListener('keydown', (event) => {
+            const key = event.key;
+            
+            // Números e ponto
+            if (/[0-9\.]/.test(key)) {
+                event.preventDefault();
+                document.getElementById(
+                    key === '.' ? 'decimal' : 
+                    key === '0' ? 'zero' : 
+                    key === '1' ? 'one' : 
+                    key === '2' ? 'two' : 
+                    key === '3' ? 'three' : 
+                    key === '4' ? 'four' : 
+                    key === '5' ? 'five' : 
+                    key === '6' ? 'six' : 
+                    key === '7' ? 'seven' : 
+                    key === '8' ? 'eight' : 'nine'
+                ).click();
+            }
+            
+            // Operadores
+            switch (key) {
+                case '+':
+                    event.preventDefault();
+                    document.getElementById('add').click();
+                    break;
+                case '-':
+                    event.preventDefault();
+                    document.getElementById('subtract').click();
+                    break;
+                case '*':
+                    event.preventDefault();
+                    document.getElementById('multiply').click();
+                    break;
+                case '/':
+                    event.preventDefault();
+                    document.getElementById('divide').click();
+                    break;
+                case 'Enter':
+                    event.preventDefault();
+                    document.getElementById('equals').click();
+                    break;
+                case 'Escape':
+                    event.preventDefault();
+                    document.getElementById('clear').click();
+                    break;
+                case 'Backspace':
+                    event.preventDefault();
+                    document.getElementById('backspace').click();
+                    break;
+                case '%':
+                    event.preventDefault();
+                    document.getElementById('porcentagem').click();
+                    break;
+            }
+        });
+    </script>
+</body>
+</html>
