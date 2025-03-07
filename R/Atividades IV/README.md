@@ -72,3 +72,11 @@ dados <- data.frame(
 - Remova as linhas com NA, atribua a um novo dataframe e compare os resultados.
 - Substitua os valores NA pela média das vendas não ausentes.
 
+10. **Regressão Linear Simples**
+
+    - Usando o dataset mtcars:
+
+        - Crie um modelo de regressão linear para prever mpg (milhas por galão) com base em wt (peso do carro).
+        - Mostre um resumo do modelo com summary().
+        - Faça um gráfico com os dados observados e a reta de regressão ajustada.
+

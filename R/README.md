@@ -43,3 +43,4 @@
     7. Visualização com ggplot2
     8. Análise estatística básica
     9. Tratamento de dados faltantes
+    10. Regressão linear simples
