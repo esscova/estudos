@@ -33,4 +33,5 @@
 - Triângulo de asteriscos
 - Sequência de Fibonacci
 - Gerenciador de estoque
+- Ano de nascimento
 ```
