@@ -1,4 +1,4 @@
-## Atividade I
+### Atividade I
     1. Criação de Vetores
     2. Operações com Vetores
     3. Funções Básicas
@@ -11,7 +11,7 @@
     10. Funções Aplicadas
     11. Análise de Dados
     
-## Atividade II
+### Atividade II
 	1. Carregamento e Inspeção de Dados
 	2. Estatísticas Descritivas
 	3. Filtragem de Dados\
@@ -23,7 +23,7 @@
 	9. Análise de Valores Ausentes
 	10. Agrupamento e Sumarização
 	
-## Atividade III
+### Atividade III
     1. Visualização de Dados (Scatter Plot com Facetas)
     2. Análise de Séries Temporais
     3. Testes Estatísticos
@@ -33,7 +33,7 @@
     7. Análise de Frequência
     8. Exportação de Dados
     
-## Atividade IV
+### Atividade IV
     1. Importar, explorar e sumarizar dados
     2. Visualização de dados
     3. Preprocessamento e limpeza de dados
@@ -44,3 +44,15 @@
     8. Análise estatística básica
     9. Tratamento de dados faltantes
     10. Regressão linear simples
+
+### Atividade V 
+    1. Manipulação de estruturas básicas  
+    2. Filtragem e seleção de dados  
+    3. Visualização de dados  
+    4. Análise estatística descritiva  
+    5. Tratamento de dados faltantes  
+    6. Regressão linear  
+    7. Importação/exportação de dados  
+    8. Agrupamento e sumarização  
+    9. Introdução ao Machine Learning  
+    10. Relatório automatizado  
