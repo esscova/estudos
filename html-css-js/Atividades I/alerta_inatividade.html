@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Alerta de inatividade</title>
+ <style>
+  * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+  }
+  body {
+   background-color: black;
+   color: white;
+   text-align: center;
+   font-family: Arial, Helvetica, sans-serif;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+  }
+  .box {
+   width: 300px;
+   height: 300px;
+   background-color: #333;
+   padding: 20px;
+   border-radius: 5px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+  }
+  span {
+   font-size: 100px;
+  }
+  .info {
+   margin-top: 20px;
+   font-size: 16px;
+  }
+ </style>
+</head>
+<body>
+ <div class="box">
+  <span id="counter">10</span>
+  <div class="info">Tempo até alerta de inatividade</div>
+ </div>
+ <script>
+  let counter = 10;
+  let inactivityTimer;
+  let countdownInterval;
+
+  // reiniciar o contador de inatividade
+  function resetInactivityTimer() {
+   clearTimeout(inactivityTimer);
+   clearInterval(countdownInterval);
+   
+   counter = 10;
+   document.getElementById("counter").innerHTML = counter;
+   
+   startCountdown();
+  }
+
+  // iniciar a contagem regressiva
+  function startCountdown() {
+   // time
+   inactivityTimer = setTimeout(() => {
+    alert("Você saiu do site por inatividade!");
+   }, 10000);
+   
+   // up counter
+   countdownInterval = setInterval(() => {
+    counter--;
+    document.getElementById("counter").innerHTML = counter;
+    
+    if (counter <= 0) {
+     clearInterval(countdownInterval);
+    }
+   }, 1000);
+  }
+
+  // iniciar no load
+  startCountdown();
+
+  // reset counter com eventos
+  document.addEventListener("mousemove", resetInactivityTimer);
+  document.addEventListener("keypress", resetInactivityTimer);
+  document.addEventListener("click", resetInactivityTimer);
+  document.addEventListener("scroll", resetInactivityTimer);
+ </script>
+</body>
+</html>
