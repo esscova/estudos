@@ -34,4 +34,5 @@
 - Sequência de Fibonacci
 - Gerenciador de estoque
 - Ano de nascimento
+- Soma dos Elementos de uma Matriz
 ```

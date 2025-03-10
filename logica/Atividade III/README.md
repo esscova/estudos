@@ -20,3 +20,6 @@
 
 4. **Ano de nascimento**
     - Faça um programa que peça ao usuário sua idade e mostre o seu ano de nascimento.
+
+5. **Soma dos Elementos de uma Matriz**
+    - Crie um algoritmo que leia uma matriz 3x3, calcule a soma de todos os seus elementos e, exiba o resultado da soma ao final.
