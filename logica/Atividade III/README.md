@@ -23,3 +23,6 @@
 
 5. **Soma dos Elementos de uma Matriz**
     - Crie um algoritmo que leia uma matriz 3x3, calcule a soma de todos os seus elementos e, exiba o resultado da soma ao final.
+    
+6. **Matriz Transposta**
+    - Escreva um algoritmo em **Portugol** que leia uma matriz 2x3 e exiba a sua matriz transposta (uma matriz 3x2).
