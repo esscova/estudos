@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Jogo da adivinhação</title>
+</head>
+<body>
+ <div>
+ <label for="num">Digite um número [1:10]</label>
+ <input type="number" name="guess" id="num" min="1" max="10">
+ <button type="submit">Adivinhar</button>
+ <p id="tentativas">Tentativas restantes: 3</p>
+ </div>
+ <script>
+const number = Math.floor(Math.random() * 10) + 1; //  entre 1 e 10
+const inputNum = document.getElementById('num');
+const btn = document.querySelector('button');
+const paragrafoTentativas = document.getElementById('tentativas');
+let tentativas = 3;
+
+console.log("Número sorteado:", number);
+
+function guess() {
+  const valorDigitado = parseInt(inputNum.value);
+  
+  if (isNaN(valorDigitado) || valorDigitado < 1 || valorDigitado > 10) {
+    alert('Por favor, digite um número válido entre 1 e 10!');
+    return;
+  }
+  
+  if (valorDigitado === number) {
+    alert('Parabéns! Você acertou!');
+    paragrafoTentativas.textContent = 'Você ganhou! O número era ' + number;
+    btn.disabled = true;
+  } else {
+    tentativas--;
+    
+    if (tentativas > 0) {
+      let dica = valorDigitado > number ? 'menor' : 'maior';
+      alert(`Errou! O número é ${dica} que ${valorDigitado}. Tentativas restantes: ${tentativas}`);
+      paragrafoTentativas.textContent = `Tentativas restantes: ${tentativas}`;
+    } else {
+      alert(`Suas tentativas acabaram! O número correto era ${number}.`);
+      paragrafoTentativas.textContent = `Você perdeu! O número era ${number}`;
+      btn.disabled = true;
+    }
+  }
+  
+  
+  inputNum.value = '';
+  inputNum.focus();
+}
+
+btn.addEventListener('click', guess);
+
+// enter
+inputNum.addEventListener('keypress', function(event) {
+  if (event.key === 'Enter') {
+    guess();
+  }
+});
+</script>
+</body>
+</html>
