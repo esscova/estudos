@@ -36,4 +36,5 @@
 - Ano de nascimento
 - Soma dos Elementos de uma Matriz
 - Matriz transposta
+- Busca em matriz
 ```

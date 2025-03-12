@@ -26,3 +26,7 @@
     
 6. **Matriz Transposta**
     - Escreva um algoritmo em **Portugol** que leia uma matriz 2x3 e exiba a sua matriz transposta (uma matriz 3x2).
+
+7. **Busca em matriz**
+- Desenvolva um algoritmo que leia uma matriz 4x4, peça para o usuário informar um número e verifique se ele está presente na matriz, por fim, exiba a mensagem "Encontrado" ou "Não encontrado" conforme o caso.
+     
