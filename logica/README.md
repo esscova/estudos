@@ -37,4 +37,5 @@
 - Soma dos Elementos de uma Matriz
 - Matriz transposta
 - Busca em matriz
+- Cálculo da área de um círculo
 ```
