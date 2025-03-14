@@ -38,4 +38,5 @@
 - Matriz transposta
 - Busca em matriz
 - Cálculo da área de um círculo
+- Calculadora de idade
 ```

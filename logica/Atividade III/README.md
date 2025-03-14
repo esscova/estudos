@@ -29,3 +29,8 @@
 
 8. **Cálculo da área de um círculo**
 - Crie um programa que declare uma constante chamada "PI" com o valor 3.14. Em seguida, o programa deve solicitar ao usuário o raio de um círculo e calcular a área do círculo usando a constante "PI". Por fim, o programa deve exibir a área calculada.
+
+9. **Calculadora de idade**
+- Crie um programa que declare duas variáveis do tipo inteiro: "idade" e "anoNascimento".
+    - O programa deve solicitar ao usuário o seu ano de nascimento e calcular a idade da pessoa.
+    - Em seguida, o programa deve exibir a idade calculada.
