@@ -41,3 +41,8 @@
 - Calculadora de idade
 - Calculadora de salário
 ```
+
+### Atividade IV
+```
+- Soma de dois números inteiros
+```
