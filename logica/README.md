@@ -45,4 +45,5 @@
 ### Atividade IV
 ```
 - Soma de dois números inteiros
+- Calculadora
 ```
