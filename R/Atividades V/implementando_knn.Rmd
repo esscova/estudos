@@ -1,0 +1,163 @@
+---
+title: "Implementando KNN"
+author: Wellington M Santos
+---
+
+O objetivo aqui é mostrar noções básicas de machine learning, mais especificamente mostrar como utilizar o algoritmo KNN na Linguagem R.
+
+## Adquirindo dados
+
+Vamos aplicar a abordagem KNN ao conjunto de dados Caravan, que faz parte da biblioteca ISLR.
+
+**Estrutura dos dados:**
+
+Esse conjunto de dados inclui 86 variáveis onde há dados sociodemográficos (variáveis nas colunas de 1-43) e propriedade do produto (variáveis nas colunas de 44-86)
+
+A variável de resposta é Compra( variável 86), que indica se um determinado indivíduo compra ou não uma apólice de seguro de Caravan.
+
+```{r}
+library(ISLR)
+library(dplyr)
+glimpse(Caravan)
+```
+
+Vamos observar a variável de resposta:
+
+```{r}
+table(Caravan$Purchase)/nrow(Caravan)
+```
+
+Vemos que apenas 6% compraram a apólice de seguros.
+
+## Verificação e Preparação dos dados
+
+```{r}
+any(is.na(Caravan))
+
+```
+
+Não há dados faltantes.
+
+**KNN é baseado em distância faz-se necessário colocar os dados numa mesma escala.**
+
+Vamos observar a variância de duas variáveis preditoras para exemplificar:
+
+```{r}
+var(Caravan[,1])
+```
+
+```{r}
+var(Caravan[,2])
+```
+
+Fica bem nítido a diferença de escalas, vamos usar a função **scale** em todas as variáveis preditoras exceto a variavel Purchase(Compra) para colocá-las numa mesma escala:
+
+```{r}
+Caravan[,1:85]<- scale(Caravan[,1:85])
+```
+
+Vamos checar as variáveis novamente
+
+```{r}
+var(Caravan[,1])
+```
+
+```{r}
+var(Caravan[,2])
+```
+
+Agora que os dados estão numa mesma escala, o conjunto de dados será dividido em teste e treinamento.
+
+```{r}
+library(caTools)
+set.seed(1)
+
+divisao <- sample.split(Caravan$MOSTYPE, SplitRatio = 0.75)
+Caravan_treinamento <- subset(Caravan, divisao==TRUE) #treinamento
+Caravan_teste <- subset(Caravan, divisao==FALSE) # teste
+```
+
+Vamos garantir que os fatores tenham os mesmos níveis nos dados de treino e teste
+
+```{r}
+# mesmos níveis nos dados de treino e teste
+nivel_comum <- union(levels(Caravan_treinamento[,86]), levels(Caravan_teste[,86]))
+
+# ajustar os fatores para ter os mesmos níveis
+Caravan_treinamento[,86] <- factor(Caravan_treinamento[,86], levels = nivel_comum)
+Caravan_teste[,86] <- factor(Caravan_teste[,86], levels = nivel_comum)
+
+```
+
+## KNN
+
+O objetivo é elaborar um modelo para prever se alguém comprará ou não.
+
+```{r}
+library(class)
+
+set.seed(1)
+previsoes <- knn(train = Caravan_treinamento[,-86], test= Caravan_teste[,-86],cl= Caravan_treinamento[,86],k=1)
+head(previsoes)
+```
+
+No primeiro argumento é colocado os dados de treinamento(sem a variável resposta) , o segundo argumento o conjunto de dados de teste (novamente sem variável resposta), o terceiro argumento a coluna com os dados da variável resposta no conjunto de treinamento e o quarto argumento é o k (quantos vizinhos).
+
+A função knn () retorna um vetor de Ys previstos. Agora seguimos para avaliar o modelo e taxa de erro( % de classificação errada):
+
+```{r}
+mean(Caravan_teste[,86] != previsoes)
+```
+
+Observe que com k=1 obteve-se 12% de erro.
+
+## Escolhendo o valor de K
+
+Para não ficar escolhendo valores para k, criamos um loop para automatizar o processo.
+
+```{r}
+perc.erro = NULL  # vetor para armazenar a taxa de erro
+
+for(i in 1:20){
+    set.seed(1)
+    previsoes = knn(train = Caravan_treinamento[,-86], test= Caravan_teste[,-86], cl= Caravan_treinamento[,86], k=i)
+    
+    previsoes <- factor(previsoes, levels = levels(Caravan_treinamento[,86]))  
+    
+    perc.erro[i] = mean(Caravan_teste[,86] != previsoes)  # taxa de erro
+}
+
+# taxas de erro para diferentes valores de k
+perc.erro
+```
+
+Vamos visualizar:
+
+```{r}
+library(ggplot2)
+
+k.values <- 1:20
+error.df <- data.frame(perc.erro,k.values)
+
+
+ggplot(error.df,aes(x=k.values,y=perc.erro)) + geom_point()+ geom_line(lty="dotted",color='red')
+
+```
+
+Vamos analisar o desempenho do modelo, que sabemos ser desbalanceado — apenas 6% das pessoas compraram a apólice. Isso significa que, se o modelo apenas prever "não compra" (a classe majoritária), ele ainda pode ter uma taxa de acerto muito alta, mas será inútil para prever casos de compra.
+
+Para isso, vamos explorar métricas de avaliação que lidam melhor com o desbalanceamento.
+
+```{r}
+# Matriz de Confusão
+library(caret)
+confusao <- confusionMatrix(previsoes, Caravan_teste[,86])
+
+# Exibir a matriz de confusão
+confusao
+
+```
+
+O modelo está prevendo apenas a classe majoritária no caso, 'Não', pois a prevalência de 'Não' é muito alta no conjunto de dados.
+
+Isso causa o alto valor da acurácia que, como vimos na matriz, o modelo não consegue falha com a classe minoritária, e para uma próxima fase seria necessário balancear classes.
