@@ -1,4 +1,16 @@
-### Atividade I
+### Lista de Exercícios I
+
+```
+- Soma de dois número pares
+- Fatorial
+- Contagem de vogais
+- Contagem de números primos
+- Inversão de Strings
+```
+
+### Lista de Exercícios II
+
+```
 - Olá, Mundo!
 - Soma de dois números
 - Par ou ímpar
@@ -9,15 +21,18 @@
 - Lista de números
 - Palíndromo
 - Fibonacci
+```
 
-### Atividade II
+### Lista de Exercícios III
+```
 - Análise de dados
 - Exploração de dados
 - Visualização de dados
 - Engenharia de dados
 - Mineração de dados
 - Machine learning
-
+```
+<!-- 
 ### Atividade III
 - Contar Caracteres
 - Inverter uma String
@@ -42,5 +57,5 @@
 - Verificar Login e Senha  
 - Desconto no Valor da Compra  
 
-
+ -->
     
