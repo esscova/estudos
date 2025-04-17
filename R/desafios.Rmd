@@ -1,0 +1,111 @@
+---
+title: "Desafios com R"
+author: Wellington M Santos
+---
+
+## **Exploração e Visualização de Dados:**
+
+Dado um conjunto de dados (por exemplo, um arquivo `.csv`), utilize R para realizar uma análise exploratória completa.
+
+Isso inclui:
+
+-   **Carregar os dados** para o R.
+-   **Identificar os tipos de variáveis** (numéricas, categóricas).
+-   **Calcular estatísticas descritivas** como média, mediana, desvio padrão para variáveis numéricas. - **Identificar e tratar valores faltantes**.
+-   **Criar visualizações informativas** como histogramas para entender a distribuição de variáveis, gráficos de dispersão para examinar a relação entre duas variáveis, e box plots para comparar distribuições entre grupos.
+-   **Interpretar as visualizações** para identificar padrões, outliers ou tendências nos dados.
+
+```{r}
+# bibliotecas
+library('dplyr')
+library(ggplot2)
+```
+
+```{r}
+# carregar dados
+data("mtcars")
+dados <- mtcars
+```
+
+o dataset mtcars, que contém informações sobre carros (como consumo de combustível, potência, peso, etc.). Caso fosse carregar de um csv usaria:
+
+```         
+dados <- read.csv("caminho/do/seu/arquivo.csv", stringsAsFactors = FALSE)
+```
+
+```{r}
+# primeiros registros
+head(dados)
+```
+
+```{r}
+# estrutura do dataset
+str(dados)
+```
+
+```{r}
+# resumo basico dos atributos numericos
+summary(dados)
+```
+
+```{r}
+# estatisticas detalhadas com dplyr atrib [mpg, hp e wt]
+estatisticas <- dados %>%
+  summarise(
+    Media_mpg = mean(mpg, na.rm = TRUE),
+    Mediana_mpg = median(mpg, na.rm = TRUE),
+    DesvioPadrao_mpg = sd(mpg, na.rm = TRUE),
+    Media_hp = mean(hp, na.rm = TRUE),
+    Mediana_hp = median(hp, na.rm = TRUE),
+    DesvioPadrao_hp = sd(hp, na.rm = TRUE),
+    Media_wt = mean(wt, na.rm = TRUE),
+    Mediana_wt = median(wt, na.rm = TRUE),
+    DesvioPadrao_wt = sd(wt, na.rm = TRUE)   
+  )
+
+estatisticas
+```
+
+```{r}
+# verificar faltantes
+colSums(is.na(dados))
+```
+
+Não existem valores faltantes, mas caso existissem, uma abordagem seria substituir NA por média ou remover registros com NA, veja exemplo para variável mpg:
+
+```         
+dados$mpg[is.na(dados$mpg)] <- mean(dados$mpg, na.rm = TRUE)
+dados <- na.omit(dados)
+```
+
+```{r}
+# histograma para variável mpg (milhas por galão)
+ggplot(dados, aes(x = mpg)) +
+  geom_histogram(binwidth = 2, fill = "blue", color = "black") +
+  labs(title = "Distribuição de Milhas por Galão (mpg)", x = "MPG", y = "Frequência") +
+  theme_minimal()
+```
+
+A distribuição de mpg é aproximadamente unimodal, com uma leve assimetria à direita (mais carros com maior eficiência). Não há outliers extremos.
+
+```{r}
+# gráfico de dispersão entre mpg e hp (potência)
+ggplot(dados, aes(x = hp, y = mpg)) +
+  geom_point(color = "darkred", size = 3) +
+  labs(title = "Relação entre Potência (hp) e Milhas por Galão (mpg)", 
+       x = "Potência (hp)", y = "MPG") +
+  theme_minimal()
+```
+
+Há uma clara tendência negativa entre hp e mpg. Carros com maior potência (hp \> 200) tendem a ter menor mpg (\< 15). Um outlier pode ser notado, podes ser um carro com alta potência e mpg razoável.
+
+```{r}
+# boxplot para mpg agrupado por número de cilindros (cyl)
+ggplot(dados, aes(x = factor(cyl), y = mpg, fill = factor(cyl))) +
+  geom_boxplot() +
+  labs(title = "Distribuição de MPG por Número de Cilindros", 
+       x = "Número de Cilindros", y = "MPG") +
+  theme_minimal()
+```
+
+Carros com 4 cilindros têm maior mpg (mediana \~26), enquanto os com 8 cilindros têm menor mpg (mediana \~15). Carros com 6 cilindros estão no meio. Há alguns outliers em 8 cilindros.
