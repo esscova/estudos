@@ -4,7 +4,7 @@ programa {
     informar_inteiro_impar_par(3)
     informar_maior_de_idade(4)
     calcular_aprovacao(3.0, 8., 10.0)
-
+    imprime_numeros()
 
   }
   // Escreva um algoritmo que leia dois números inteiros e exiba a soma deles.
@@ -60,7 +60,15 @@ programa {
     } senao {
         escreva("Reprovado")
     }
-}
+
+  }
+
+  funcao imprime_numeros(){
+    // Escreva um algoritmo que exiba os números de 1 a 10 na tela, um por linha. Use uma estrutura de repetição para.
+    para(inteiro i = 1; i<=10; i++){
+      escreva(i,"\n")
+    }
+  }
 
 
 }

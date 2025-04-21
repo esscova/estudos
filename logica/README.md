@@ -1,49 +1,35 @@
-﻿# Lógica de Programação com Portugol
+# Lógica de Programação 
+A lógica de programação é o conjunto de regras e conceitos que orientam a construção de algoritmos, que são instruções para um computador. 
+<p align='center'>
+    <img src='https://assets-blog.hostgator.com.br/wp-content/uploads/2016/09/logica-de-programacao-blog.webp'/>
+</p>
 
-### Atividades I
-```
-- Verificação de idade
-- Comparações de números
-- Verificação de divisibilidade
-- Verificação de temperatura
-- Verificação de notas
-- Impressão dos números de 1 a 10
-- Cálculo do fatorial de um número
-- Contagem regressiva
-- Tabuada de um número
-- Soma dos números em uma lista
-```
+Sua importância é fundamental para o desenvolvimento de software, permitindo que os programadores criem soluções eficientes e corretas. 
 
-### Atividades II
-```
-- Verificação de idade
-- Contagem de números
-- Inversão de vetor
-- Média de valores
-- Pesquisando dados de um vetor
-- Cálculo de alíquota
-- Caixa eletrônico
-- Classificador de triângulos
-- Soma de pares
-- Contador de primos
-```
+Inclui conceitos como sequência, decisão e repetição, que são usados para estruturar a execução de um algoritmo. 
 
-### Atividade III
-```
-- Triângulo de asteriscos
-- Sequência de Fibonacci
-- Gerenciador de estoque
-- Ano de nascimento
-- Soma dos Elementos de uma Matriz
-- Matriz transposta
-- Busca em matriz
-- Cálculo da área de um círculo
-- Calculadora de idade
-- Calculadora de salário
-```
+Exercitar a lógica de programação melhora a capacidade de resolução de problemas, a eficiência do código e a compreensão de novas linguagens de programação. 
 
-### Atividade IV
-```
-- Soma de dois números inteiros
-- Calculadora
-```
+## Portugol
+Portugol é uma notação, ou pseudo-linguagem de programação, que usa a linguagem portuguesa para representar algoritmos de forma clara e estruturada, facilitando o estudo e desenvolvimento de lógica de programação.
+
+Ela é frequentemente utilizada em cursos de informática e programação para introduzir os conceitos básicos, como estruturas de controle e variáveis, antes de se avançar para linguagens de programação reais. 
+
+Existem ferramentas como o Portugol WebStudio e o Portugol Studio que auxiliam na escrita, execução e depuração de códigos em Portugol. 
+
+<p align='center'>
+    <img src='https://repository-images.githubusercontent.com/2157104/7550db00-8d52-11eb-9f0e-133d434bbfe1' width=500
+</p>
+
+Para estas atividades utilizei o [Portugol WebStudio](https://portugol.dev/).
+
+## Lista de atividades
+> ### 01
+>
+>* Escreva um algoritmo que leia dois números inteiros e exiba a soma deles.
+>* Escreva um algoritmo que leia um número inteiro e informe se ele é par ou ímpar. (Dica: Use o operador MOD para obter o resto da divisão).
+>* Escreva um algoritmo que leia a idade de uma pessoa em anos e informe se ela é maior de idade (idade >= 18) ou menor de idade.
+>* Escreva um algoritmo que leia três notas de um aluno (de 0 a 10) e calcule a média. Se a média for maior ou igual a 7.0, exiba "Aprovado". Caso contrário, exiba "Reprovado".
+>* Escreva um algoritmo que exiba os números de 1 a 10 na tela, um por linha. Use uma estrutura de repetição para.
+
+
